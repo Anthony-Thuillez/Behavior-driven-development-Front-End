@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
+    "babel": "^6.23.0",
     "polished": "^3.5.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -60,6 +61,8 @@
     "jest-cucumber": "^2.0.11",
     "jest-styled-components": "^7.0.2",
     "jest-watch-typeahead": "^0.5.0",
-    "react-test-renderer": "^16.12.0"
+    "react-test-renderer": "^16.12.0",
+    "@babel/core": "^7.4.4",
+    "babel-loader": "^8.0.6"
   }
 }
