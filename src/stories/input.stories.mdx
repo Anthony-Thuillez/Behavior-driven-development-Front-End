@@ -1,0 +1,25 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Small, Medium, Large} from './input.stories';
+import Input from '../components/atoms/input';
+
+<Meta title="Atoms|Input" component={Input} />
+
+# Button
+
+This section describe all variant of Input component. You can play with 3 sizes: `small`, `medium` and `large`.
+
+<div style={{ display: 'flex', justifyContent: 'space-between', width: '600px' }}>
+    <Small onChange={e => alert('Changed')} />
+    <Medium onChange={e => alert('Changed')} />
+    <Large onChange={e => alert('Changed')} />
+</div>
+
+Now let's see in details !
+
+```javascript
+<Input size="large" onChange={e => alert('Changed')}></Input>
+```
+
+# Props
+
+<Props of={Input} />
