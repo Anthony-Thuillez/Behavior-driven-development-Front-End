@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { darken } from 'polished';
@@ -17,13 +18,13 @@ const sizes = {
     }
 }
 
-const Button = styled.button`
+const StyledButton = styled.button`
     font-family: Roboto;
     font-weight: 400;
     font-size:  ${props => sizes[props.size].fontSize};
     line-height: ${props => sizes[props.size].lineHeight};
     color: #000;
-    width: 100px;
+    width: 100%;
     outline: none;
     transition: all ease .4s;
     padding: 16px;
@@ -44,16 +45,31 @@ const Button = styled.button`
     }
 `;
 
+const Button = ({size, children, onClick, testid, disabled}) => {
+    return(
+    <StyledButton size={size} data-testid={testid} onClick={onClick} disabled={disabled}>{children}</StyledButton>
+    )
+}
+
 /* Will show the right 'tag' within documentation */
 Button.displayName = 'Button';
 Button.defaultProps = {
-    size: 'medium'
+    size: 'medium',
+    testid: 'button',
+    disabled: false,
 };
 
 Button.propTypes = {
+  /** Optionnal sizes */
  size: PropTypes.oneOf(['small', 'medium', 'large']),
+ /** Children as ONE element */
  children: PropTypes.element.isRequired,
- onClick: PropTypes.func.isRequired
+ /** Callback when clicked */
+ onClick: PropTypes.func.isRequired,
+ /** Optionnal testid */
+ testid: PropTypes.string,
+ /** Disabled state */
+ disabled: PropTypes.bool
 };
 
 export default Button;

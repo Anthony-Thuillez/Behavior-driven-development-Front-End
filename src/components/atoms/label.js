@@ -35,12 +35,14 @@ const Label = ({size, children, testid}) => {
 /* Will show the right 'tag' within documentation */
 Label.displayName = 'Label';
 Label.defaultProps = {
-    size: 'medium'
+    size: 'medium',
+    testid: 'label'
 };
 
 Label.propTypes = {
  size: PropTypes.oneOf(['small', 'medium', 'large']),
- children: PropTypes.element.isRequired
+ children: PropTypes.element.isRequired,
+ testid: PropTypes.string
 };
 
 export default Label;

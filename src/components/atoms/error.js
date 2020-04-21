@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -16,7 +17,7 @@ const sizes = {
     }
 }
 
-const Error = styled.span`
+const StyledError = styled.span`
     font-family: Roboto;
     font-weight: 900;
     font-size:  ${props => sizes[props.size].fontSize};
@@ -24,6 +25,12 @@ const Error = styled.span`
     padding-top: 8px;
     color: red;
 `;
+
+const Error = ({size, children, testid}) => {
+    return(
+        <StyledError size={size} data-testid={testid}>{children}</StyledError>
+    )
+}
 
 /* Will show the right 'tag' within documentation */
 Error.displayName = 'Error';

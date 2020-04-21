@@ -1,0 +1,25 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Small, Medium, Large} from './error.stories';
+import Error from '../components/atoms/error';
+
+<Meta title="Atoms|Error" component={Error} />
+
+# Error
+
+This section describe all variant of Error component. You can play with 3 sizes: `small`, `medium` and `large`.
+
+<div style={{ display: 'flex', justifyContent: 'space-between', width: '600px' }}>
+    <Small />
+    <Medium />
+    <Large />
+</div>
+
+Now let's see in details !
+
+```javascript
+<Error size="large">Large Error</Error>
+```
+
+# Props
+
+<Props of={Error} />

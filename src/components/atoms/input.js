@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { darken } from 'polished';
@@ -20,7 +21,7 @@ const sizes = {
     }
 }
 
-const Input = styled.input`
+const StyledInput = styled.input`
     font-family: Roboto;
     font-weight: 300;
     font-size:  ${props => sizes[props.size].fontSize};
@@ -43,6 +44,12 @@ const Input = styled.input`
         color: #7C859E;
     }
 `;
+
+const Input = ({size, onChange, placeholder, testid}) => {
+    return(
+        <StyledInput size={size} data-testid={testid} onChange={onChange} placeholder={placeholder} />
+    )
+}
 
 /* Will show the right 'tag' within documentation */
 Input.displayName = 'Input';

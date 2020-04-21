@@ -1,0 +1,26 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Small, Medium, Large, Disabled} from './button.stories';
+import Button from '../components/atoms/button';
+
+<Meta title="Atoms|Button" component={Button} />
+
+# Button
+
+This section describe all variant of Button component. You can play with 3 sizes: `small`, `medium` and `large`.
+
+<div style={{ display: 'flex', justifyContent: 'space-between', width: '600px' }}>
+    <Small onClick={e => alert('Clicked')} />
+    <Medium onClick={e => alert('Clicked')} />
+    <Large onClick={e => alert('Clicked')} />
+    <Disabled onClick={e => alert('Clicked')} />
+</div>
+
+Now let's see in details !
+
+```javascript
+<Button size="large" onClick={e => alert('Clicked')}>Large Button</Button>
+```
+
+# Props
+
+<Props of={Button} />
