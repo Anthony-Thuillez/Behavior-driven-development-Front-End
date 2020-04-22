@@ -1,4 +1,4 @@
-# Driven-development-Front-End
+# Behavior-Driven-Development-Front-End
 
 ### Equipe :
 * Léa Syhanath : UX / UI
