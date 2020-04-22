@@ -5,34 +5,45 @@ import { darken } from 'polished';
 
 const sizes = {
     small:{
-        fontSize: '12px',
-        lineHeight: '16px',
-        height: '18px',
-    },
-    medium: {
-        fontSize: '14px',
-        lineHeight: '18px',
-        height: '22px',
+        fontSize: '15px',
+        lineHeight: '17px',
+        height: '30px',
+        width: '30px',
     },
     large: {
-        fontSize: '16px',
-        lineHeight: '20px',
-        height: '24px',
+        fontSize: '20px',
+        lineHeight: '24px',
+        height: '45px',
+        width: '390px',
+        backgroundColor:'rgba(183, 39, 38, 0.5)'
+    }
+}
+
+const colors = {
+    red:{
+        backgroundColor:'rgba(183, 39, 38, 0.5)',
+        color: '#fff'
+    },
+    white: {
+        backgroundColor:'#fff',
+        color:'#140C0B'
     }
 }
 
 const StyledInput = styled.input`
-    font-family: Roboto;
+    font-family: Avenir;
     font-weight: 300;
     font-size:  ${props => sizes[props.size].fontSize};
     line-height: ${props => sizes[props.size].lineHeight};
-    color: #000;
+    color: ${props => colors[props.color].color};
+    background-color: ${props => colors[props.color].backgroundColor};
     height: ${props => sizes[props.size].height};
+    width: ${props => sizes[props.size].width};
+    text-align: center;
     outline: none;
+    border:none;
     transition: all ease .4s;
     padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #E5E7EB;
     :focus {
         border: 1px solid ${darken(0.3, '#E5E7EB')};
     }
@@ -41,27 +52,38 @@ const StyledInput = styled.input`
         cursor: not-allowed;
     }
     ::placeholder {
-        color: #7C859E;
+        color: ${props => colors[props.color].color};
     }
 `;
 
-const Input = ({size, onChange, placeholder, testid}) => {
+const Input = ({size, color, onChange, onSubmit, placeholder, type, testid}) => {
     return(
-        <StyledInput size={size} data-testid={testid} onChange={onChange} placeholder={placeholder} />
+        <StyledInput size={size} color={color} data-testid={testid} onChange={onChange} onSumbit={onSubmit}  placeholder={placeholder} type={type} testid={testid}/>
     )
 }
 
 /* Will show the right 'tag' within documentation */
 Input.displayName = 'Input';
 Input.defaultProps = {
-    size: 'medium',
-    placeholder: 'Type here'
+    size: 'large',
+    color: 'red',
+    placeholder: '',
+    testid:'large-input'
 };
 
 Input.propTypes = {
- size: PropTypes.oneOf(['small', 'medium', 'large']),
+ /** Optionnal sizes */
+ size: PropTypes.oneOf(['small','large']),
+ /** Optionnal colors */
+ color: PropTypes.oneOf(['red', 'white']),
+ /** Callback when clicked */
  onChange: PropTypes.func.isRequired,
- placeholder: PropTypes.string
+ /** Callback when clicked */
+ placeholder: PropTypes.func.isRequired,
+ /** Optionnal testid */
+ testid: PropTypes.string,
+ /** Disabled state */
+ disabled: PropTypes.bool
 };
 
 export default Input;

@@ -2,46 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const sizes = {
-    small:{
-        fontSize: '12px',
-        lineHeight: '16px',
-    },
-    medium: {
-        fontSize: '14px',
-        lineHeight: '18px',
-    },
-    large: {
-        fontSize: '16px',
-        lineHeight: '20px',
-    }
+const colors = {
+    red: '#B72726',
+    white: '#FFFFFF'
 }
 
 const StyledLabel = styled.label`
-    font-family: Roboto;
-    font-weight: 400;
-    font-size:  ${props => sizes[props.size].fontSize};
-    line-height: ${props => sizes[props.size].lineHeight};
-    text-transform: uppercase;
+    font-family: Avenir;
+    font-weight: 500;
+    font-size:  20px;
+    line-height: 24px;
     padding-bottom: 8px;
+    color: ${props => colors[props.color]};
 `;
 
-const Label = ({size, children, testid}) => {
+const Label = ({color, children, testid}) => {
     return(
-        <StyledLabel size={size} data-testid={testid}>{children}</StyledLabel>
+        <StyledLabel color={color} data-testid={testid}>{children}</StyledLabel>
     )
 }
 
 /* Will show the right 'tag' within documentation */
 Label.displayName = 'Label';
 Label.defaultProps = {
-    size: 'medium',
+    color: 'white',
     testid: 'label'
 };
 
 Label.propTypes = {
- size: PropTypes.oneOf(['small', 'medium', 'large']),
+/** Optionnal colors */
+ color: PropTypes.oneOf(['red', 'white']),
+/** Children as ONE element */
  children: PropTypes.element.isRequired,
+/** Optionnal testid */
  testid: PropTypes.string
 };
 
