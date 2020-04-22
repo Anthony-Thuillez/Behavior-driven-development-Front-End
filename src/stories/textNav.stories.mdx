@@ -1,0 +1,25 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Normal, Active} from './textNav.stories';
+import ItemNav from '../components/atoms/textNav';
+
+<Meta title="Atoms|ItemNav" component={ItemNav} />
+
+# Item of Navigation
+
+This section describe all variant of Text Navigation component. You can play with 2 items: `normal` and `active` and 2 colors: `white` and `red`.
+
+<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flexWrap: 'wrap', width: 'auto', background: 'black', padding: '20px 20px' }}>
+    <Normal />
+    <Active />
+</div>
+
+Now let's see in details !
+
+```javascript
+<ItemNav itemNav="normal" color="white"> Normal Item in Navigation</ItemNav>
+<ItemNav itemNav="active" color="red"> Active Item in Navigation</ItemNav>
+```
+
+# Props
+
+<Props of={ItemNav} />
