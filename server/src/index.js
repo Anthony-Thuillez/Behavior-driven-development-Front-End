@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 /* Imports routes */
+import robberyRoute from './routes/robbery.route';
 
 /**
  * @desc Setup .env config
@@ -19,7 +20,7 @@ const app = express();
 /**
  * @desc Connection to mongodb
  */
-mongoose.connect(`mongodb+srv://${process.env.BDD_NAME}:${process.env.BDD_PWD}@cluster0-hlvls.mongodb.net/${process.env.BDD_NAME}`,
+mongoose.connect(`mongodb+srv://${process.env.BDD_USERNAME}:${process.env.BDD_PWD}@cluster0-a5tvb.mongodb.net/${process.env.BDD_NAME}`,
     { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false }
 );
 mongoose.Promise = global.Promise;
@@ -36,6 +37,7 @@ app.use(bodyParser.json());
  * @desc Initialize routes
  */
 app.use(cors());
+app.use(robberyRoute);
 
 /**
 * @desc Error handling middleware
@@ -48,5 +50,5 @@ app.use((err, req, res, next) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.info(`Server has started on ${PORT}`));
