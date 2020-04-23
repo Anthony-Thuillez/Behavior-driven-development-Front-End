@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { MainForm } from './form.stories';
+import Form from '../components/molecules/form';
+
+<Meta title="Molecule|Form" component={Form} />
+
+# Form
+
+This section describes the main Form component.
+
+<div style={{ display: 'flex', justifyContent: 'space-between', width: '600px',backgroundColor: '#140C0B', padding: '20px' }}>
+    <MainForm />
+</div>
+
+Now let's see in details !
+
+```javascript
+<Form testid="main-form" onSubmit={props.onSubmit}></Form>
+```
+
+# Props
+
+<Props of={Form} />

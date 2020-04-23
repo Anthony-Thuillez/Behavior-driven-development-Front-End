@@ -8,19 +8,22 @@ const types = {
         fontSize: '20px',
         lineHeight: '24px',
         height: '45px',
-        width: '90px'
+        width: '90px', 
+        alignSelf:'flex-end'
     },
     default : {
         fontSize: '20px',
         lineHeight: '24px',
         height: '45px',
-        width: '150px'
+        width: '150px',
+        alignSelf:'center'
     },
     disabled : {
         fontSize: '15px',
         lineHeight: '24px',
         height: '45px',
-        width: '150px'
+        width: '150px',
+        alignSelf:'auto'
     }
 }
 const colors = {
@@ -47,6 +50,7 @@ const StyledButton = styled.button`
     outline: none;
     transition: all ease .4s;
     cursor: pointer;
+    align-self: ${props => types[props.type].alignSelf};
     :disabled {
         background-color: #E5E7EB;
         color: #999999;
