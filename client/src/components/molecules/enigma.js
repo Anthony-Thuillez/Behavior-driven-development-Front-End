@@ -11,11 +11,7 @@ const StyledEnigma = styled.div`
     justify-content: space-between;
     height:auto;
     margin-bottom: 16px;
-    .engima-sub {
-        display:flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+
 `;
 
 const Enigma = ({onSubmit, testid, error}) => {
