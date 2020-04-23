@@ -11,6 +11,11 @@ const StyledEnigma = styled.div`
     justify-content: space-between;
     height:auto;
     margin-bottom: 16px;
+    margin: auto;
+    .enigma-sub{
+        text-align:center;
+        margin-top:10px;
+    }
 
 `;
 
