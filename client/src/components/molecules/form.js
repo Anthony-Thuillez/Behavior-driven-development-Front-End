@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Error from '../atoms/error';
-import Large from '../../stories/input.stories';
-import LabelWhite from '../../stories/label.stories';
-import Submit from '../../stories/button.stories';
+import {Large} from '../../stories/input.stories';
+import {LabelWhite} from '../../stories/label.stories';
+import {Submit} from '../../stories/button.stories';
 
 
 const StyledForm = styled.div`
