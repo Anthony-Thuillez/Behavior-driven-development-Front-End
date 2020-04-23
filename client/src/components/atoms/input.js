@@ -44,6 +44,7 @@ const StyledInput = styled.input`
     border:none;
     transition: all ease .4s;
     padding: 8px;
+    margin: 5px 0 30px;
     :focus {
         border: 1px solid ${darken(0.3, '#E5E7EB')};
     }

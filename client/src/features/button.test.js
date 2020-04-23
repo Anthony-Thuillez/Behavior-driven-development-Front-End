@@ -4,56 +4,45 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import { Default, Small, Medium, Large, Disabled } from '../stories/button.stories';
+import { Submit, Default, Disabled } from '../stories/button.stories';
 
 describe('Renders Button component', () => {
     let spy;
 
     beforeEach(() => {
-      spy = jest.fn();
+        spy = jest.fn();
     });
 
-    test('with default behavior', () => {
-      const { container, getByTestId } = render(<Default onClick={spy} />);
-      expect(container).toBeTruthy();
-      const button = getByTestId('default-button')
-      expect(button).toHaveStyleRule('font-size', '14px');
-      button.click();
-      expect(spy).toHaveBeenCalled();
-    });
-
-    test('with a medium size', () => {
-    const { container, getByTestId } = render(<Medium onClick={spy} />);
-      expect(container).toBeTruthy();
-      const button = getByTestId('medium-button')
-      expect(button).toHaveStyleRule('font-size', '14px');
-      button.click();
-      expect(spy).toHaveBeenCalled();
-    });
-
-    test('with a small size', () => {
-        const { container, getByTestId } = render(<Small onClick={spy} />);
+    test('with a submit state', () => {
+        const { container, getByTestId } = render(<Submit onClick={spy} />);
         expect(container).toBeTruthy();
-        const button = getByTestId('small-button')
-        expect(button).toHaveStyleRule('font-size', '12px');
+        const button = getByTestId('submit-button')
+        expect(button).toHaveStyleRule('color', '#B72726');
         button.click();
-        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledTimes(1);
     });
 
-    test('with a large size', () => {
-        const { container, getByTestId } = render(<Large onClick={spy} />);
+    test('with a color state', () => {
+        const { container, getByTestId } = render(<Submit onClick={spy} />);
         expect(container).toBeTruthy();
-        const button = getByTestId('large-button')
-        expect(button).toHaveStyleRule('font-size', '16px');
+        const button = getByTestId('submit-button')
         button.click();
-        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    test('with a default state', () => {
+        const { container, getByTestId } = render(<Default onClick={spy} />);
+        expect(container).toBeTruthy();
+        const button = getByTestId('default-button')
+        button.click();
+        expect(spy).toHaveBeenCalledTimes(1);
     });
 
     test('with a disabled state', () => {
-      const { container, getByTestId } = render(<Disabled onClick={spy} />);
-      expect(container).toBeTruthy();
-      const button = getByTestId('disabled-button')
-      button.click();
-      expect(spy).toHaveBeenCalledTimes(0);
+        const { container, getByTestId } = render(<Disabled onClick={spy} />);
+        expect(container).toBeTruthy();
+        const button = getByTestId('disabled-button')
+        button.click();
+        expect(spy).toHaveBeenCalledTimes(0);
     });
-  });
+});

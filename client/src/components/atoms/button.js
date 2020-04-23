@@ -4,31 +4,34 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 const types = {
-    submit:{
+    submit: {
         fontSize: '20px',
         lineHeight: '24px',
         height: '45px',
-        width: '90px'
+        width: '90px', 
+        alignSelf:'flex-end'
     },
-    default : {
+    default: {
         fontSize: '20px',
         lineHeight: '24px',
         height: '45px',
-        width: '150px'
+        width: '150px',
+        alignSelf:'center'
     },
-    disabled : {
+    disabled: {
         fontSize: '15px',
         lineHeight: '24px',
         height: '45px',
-        width: '150px'
+        width: '150px',
+        alignSelf:'auto'
     }
 }
 const colors = {
-    white:{
+    darkred: {
         backgroundColor: '#fff',
         color: '#B72726'
     },
-    red : {
+    red: {
         backgroundColor: '#B72726',
         color: '#fff'
     }
@@ -47,6 +50,7 @@ const StyledButton = styled.button`
     outline: none;
     transition: all ease .4s;
     cursor: pointer;
+    align-self: ${props => types[props.type].alignSelf};
     :disabled {
         background-color: #E5E7EB;
         color: #999999;
@@ -60,9 +64,10 @@ const StyledButton = styled.button`
     }
 `;
 
-const Button = ({type, color, children, onClick, testid, disabled}) => {
-    return(
-    <StyledButton type={type} color={color} data-testid={testid} onClick={onClick} disabled={disabled}>{children}</StyledButton>
+const Button = ({ type, color, children, onClick, testid, disabled }) => {
+
+    return (
+        <StyledButton type={type} color={color} data-testid={testid} onClick={onClick} disabled={disabled}>{children}</StyledButton>
     )
 }
 
@@ -70,26 +75,26 @@ const Button = ({type, color, children, onClick, testid, disabled}) => {
 Button.displayName = 'Button';
 Button.defaultProps = {
     type: 'submit',
-    color: 'white',
+    color: 'darkred',
     testid: 'button',
     disabled: false,
 };
 
 Button.propTypes = {
-  /** Optionnal types */
- type: PropTypes.oneOf(['submit', 'default', 'disabled']),
-  /** Optionnal colors */
- color: PropTypes.oneOf(['white', 'red']),
- /** Children as ONE element */
- children: PropTypes.element.isRequired,
- /** Callback when clicked */
- onClick: PropTypes.func.isRequired,
- /** Callback when clicked */
- onSumbit: PropTypes.func.isRequired,
- /** Optionnal testid */
- testid: PropTypes.string,
- /** Disabled state */
- disabled: PropTypes.bool
+    /** Optionnal types */
+    type: PropTypes.oneOf(['submit', 'default', 'disabled']),
+    /** Optionnal colors */
+    color: PropTypes.oneOf(['darkred', 'red']),
+    /** Children as ONE element */
+    // children: PropTypes.element.isRequired,
+    /** Callback when clicked */
+    // onClick: PropTypes.func.isRequired,
+    /** Callback when clicked */
+    //  onSumbit: PropTypes.func.isRequired,
+    /** Optionnal testid */
+    testid: PropTypes.string,
+    /** Disabled state */
+    disabled: PropTypes.bool
 };
 
 export default Button;
