@@ -1,0 +1,28 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Medium, Large, MediumRed, LargeRed} from './title.stories';
+import Title from '../components/atoms/title';
+
+<Meta title="Atoms|Title" component={Title} />
+
+# Title
+
+This section describe all variant of Title component. You can play with 3 sizes: `medium` and `large` and 2 colors: `white` and `red`.
+
+<div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', width: 'auto', background: 'black' }}>
+    <Medium />
+    <MediumRed />
+    <Large />
+    <LargeRed />
+
+</div>
+
+Now let's see in details !
+
+```javascript
+<Title size="large" color="red">Large Red Title</Title>
+<Title testid="medium-title"><span>Medium Title</span></Title>
+```
+
+# Props
+
+<Props of={Title} />
