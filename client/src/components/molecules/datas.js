@@ -20,7 +20,11 @@ const StyledDatas = styled.div`
         flex-direction: column;
         justify-content: space-between;
         border-right: 1px solid #fff;
-        padding: 10px;
+        margin: 20px 0;
+        padding:10px 30px;
+        :last-child{
+            border-right:none;
+        }
     }
 `;
 
