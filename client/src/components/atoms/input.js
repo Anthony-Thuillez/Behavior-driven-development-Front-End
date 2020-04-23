@@ -4,29 +4,32 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 const sizes = {
-    small:{
+    small: {
         fontSize: '15px',
         lineHeight: '17px',
         height: '30px',
         width: '30px',
+        margin: '5px'
     },
     large: {
         fontSize: '20px',
         lineHeight: '24px',
         height: '45px',
         width: '390px',
-        backgroundColor:'rgba(183, 39, 38, 0.5)'
+        backgroundColor: 'rgba(183, 39, 38, 0.5)',
+        margin: '5px 0 30px'
+
     }
 }
 
 const colors = {
-    red:{
-        backgroundColor:'rgba(183, 39, 38, 0.5)',
+    darkred: {
+        backgroundColor: 'rgba(183, 39, 38, 0.5)',
         color: '#fff'
     },
-    white: {
-        backgroundColor:'#fff',
-        color:'#140C0B'
+    blackred: {
+        backgroundColor: '#fff',
+        color: '#140C0B'
     }
 }
 
@@ -44,7 +47,7 @@ const StyledInput = styled.input`
     border:none;
     transition: all ease .4s;
     padding: 8px;
-    margin: 5px 0 30px;
+    margin: ${props => sizes[props.size].margin};
     :focus {
         border: 1px solid ${darken(0.3, '#E5E7EB')};
     }
@@ -57,9 +60,9 @@ const StyledInput = styled.input`
     }
 `;
 
-const Input = ({size, color, onChange, onSubmit, placeholder, type, testid}) => {
-    return(
-        <StyledInput size={size} color={color} data-testid={testid} onChange={onChange} onSumbit={onSubmit}  placeholder={placeholder} type={type} testid={testid}/>
+const Input = ({ size, color, onChange, onSubmit, placeholder, type, testid }) => {
+    return (
+        <StyledInput size={size} color={color} data-testid={testid} onChange={onChange} /* onSumbit={onSubmit} */ placeholder={placeholder} type={type} testid={testid} />
     )
 }
 
@@ -67,24 +70,24 @@ const Input = ({size, color, onChange, onSubmit, placeholder, type, testid}) => 
 Input.displayName = 'Input';
 Input.defaultProps = {
     size: 'large',
-    color: 'red',
+    color: 'darkred',
     placeholder: '',
-    testid:'large-input'
+    testid: 'large-input'
 };
 
 Input.propTypes = {
- /** Optionnal sizes */
- size: PropTypes.oneOf(['small','large']),
- /** Optionnal colors */
- color: PropTypes.oneOf(['red', 'white']),
- /** Callback when clicked */
- onChange: PropTypes.func.isRequired,
- /** Callback when clicked */
- placeholder: PropTypes.func.isRequired,
- /** Optionnal testid */
- testid: PropTypes.string,
- /** Disabled state */
- disabled: PropTypes.bool
+    /** Optionnal sizes */
+    size: PropTypes.oneOf(['small', 'large']),
+    /** Optionnal colors */
+    color: PropTypes.oneOf(['darkred', 'blackred']),
+    /** Callback when clicked */
+    // onChange: PropTypes.func.isRequired,
+    /** Callback when clicked */
+    //  placeholder: PropTypes.func.isRequired,
+    /** Optionnal testid */
+    testid: PropTypes.string,
+    /** Disabled state */
+    disabled: PropTypes.bool
 };
 
 export default Input;

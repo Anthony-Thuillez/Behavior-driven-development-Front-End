@@ -13,7 +13,7 @@ describe('Renders Button component', () => {
         spy = jest.fn();
     });
 
-    test('with a submit state', () => {
+    test('with a submit color state', () => {
         const { container, getByTestId } = render(<Submit onClick={spy} />);
         expect(container).toBeTruthy();
         const button = getByTestId('submit-button')
@@ -22,7 +22,7 @@ describe('Renders Button component', () => {
         expect(spy).toHaveBeenCalledTimes(1);
     });
 
-    test('with a color state', () => {
+    test('with a submit state', () => {
         const { container, getByTestId } = render(<Submit onClick={spy} />);
         expect(container).toBeTruthy();
         const button = getByTestId('submit-button')
@@ -34,6 +34,15 @@ describe('Renders Button component', () => {
         const { container, getByTestId } = render(<Default onClick={spy} />);
         expect(container).toBeTruthy();
         const button = getByTestId('default-button')
+        button.click();
+        expect(spy).toHaveBeenCalledTimes(1);
+    });
+
+    test('with a default color state', () => {
+        const { container, getByTestId } = render(<Default onClick={spy} />);
+        expect(container).toBeTruthy();
+        const button = getByTestId('default-button')
+        expect(button).toHaveStyleRule('color', '#fff');
         button.click();
         expect(spy).toHaveBeenCalledTimes(1);
     });
