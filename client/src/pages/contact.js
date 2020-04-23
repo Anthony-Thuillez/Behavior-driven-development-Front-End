@@ -1,5 +1,10 @@
 import React from "react";
+import TemplateContact from '../components/templates/templateContact';
 
 export default function Contact() {
-  return <h2>Contact me</h2>
+  return (
+    <TemplateContact
+      title="Test de la page contact"
+    />
+  )
 }

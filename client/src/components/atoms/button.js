@@ -40,7 +40,7 @@ const colors = {
 const StyledButton = styled.button`
     font-family: Avenir;
     font-weight: 400;
-    font-size:  ${props => types[props.type].fontSize};
+    font-size: ${props => types[props.type].fontSize};
     line-height: ${props => types[props.type].lineHeight};
     background-color: ${props => colors[props.color].backgroundColor};
     color: ${props => colors[props.color].color};

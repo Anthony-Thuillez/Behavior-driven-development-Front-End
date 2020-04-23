@@ -6,17 +6,17 @@ import About from './pages/about';
 import Contact from './pages/contact';
 
 // App components
-import MainWrapper from './components/templates/main'
+import Layout from './components/templates/layout'
 
 export default function App() {
   return (
-    <MainWrapper>
+    <Layout>
       <Router>
         <Route exact path="/" component={Home} />
         <Route path="/projects" component={Projects} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
       </Router>
-    </MainWrapper>
+    </Layout>
   );
 }

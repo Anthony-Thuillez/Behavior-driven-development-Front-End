@@ -1,5 +1,12 @@
 import React from "react";
+import TemplateAbout from '../components/templates/templateAbout';
+import Img from '../assets/sergio.png';
 
 export default function About() {
-  return <h2>About me</h2>
+  return (
+    <TemplateAbout
+      backgroundImg={Img}
+      title="Test de la page about"
+    />
+  )
 }

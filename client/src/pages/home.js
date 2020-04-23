@@ -1,5 +1,12 @@
 import React from "react";
+import TemplateHomepage from '../components/templates/templateHomepage';
+import Img from '../assets/professeur.png';
 
 export default function Home() {
-  return <h2>Home</h2>
+  return (
+    <TemplateHomepage
+      backgroundImg={Img}
+      title="Test de la homepage"
+    />
+  )
 }
