@@ -1,0 +1,27 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Site, Yt, Insta } from './rsx.stories';
+import Rsx from '../components/atoms/rsx';
+
+<Meta title="Atoms|Rsx" component={Rsx} />
+
+# Réseaux Sociaux
+
+This section describe all variant of Reseaux Social component. You can play with 3 icons: `site`, `yt`, `insta`.
+
+<div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: 'auto', background: 'black', padding: '20px 20px' }}>
+    <Site />
+    <Yt />
+    <Insta />
+</div>
+
+Now let's see in details !
+
+```javascript
+<Rsx rs="site"> <img src={masque}/> </Rsx>
+<Rsx rs="yt"> <img src={yt}/> </Rsx>
+<Rsx rs="insta"> <img src={insta}/> </Rsx>
+```
+
+# Props
+
+<Props of={Rsx} />
