@@ -9,11 +9,11 @@ const StyledLink = styled(Link)`
     height: 30px;
 `;
 
-function Logo() {
+function Logo({ testid }) {
 
     return (
         <StyledLink to="/" >
-            <img src={LogoImg} alt="Logo" />
+            <img data-testid={testid} src={LogoImg} alt="Logo" />
         </StyledLink>
     )
 }
