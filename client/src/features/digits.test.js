@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 // this adds jest-dom's custom assertions
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
