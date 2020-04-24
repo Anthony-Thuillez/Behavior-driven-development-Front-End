@@ -1,0 +1,28 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Default, Active} from './linkNavigation.stories';
+import { BrowserRouter as Router } from "react-router-dom";
+import linkNavigation from '../components/atoms/linkNavigation';
+
+<Meta title="Atoms|linkNavigation" component={linkNavigation} />
+
+# Item of Navigation
+
+This section describe all variant of Text Navigation component. You can play with 2 items: `default` and `active`.
+
+<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flexWrap: 'wrap', width: 'auto', background: 'black', padding: '20px 20px' }}>
+    <Router>
+        <Default />
+        <Active />
+    </Router>
+</div>
+
+Now let's see in details !
+
+```javascript
+<linkNavigation text="Default Link" />
+<linkNavigation text="Active Link" />
+```
+
+# Props
+
+<Props of={linkNavigation} />

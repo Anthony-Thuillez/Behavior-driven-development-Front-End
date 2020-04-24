@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import NavBar from '../organisms/navbar';
 import { Breakpoint } from '../../styles/variables';
+import styled from 'styled-components';
 
 const MainWrapper = styled.div`
     padding: 40px 0;
@@ -27,9 +28,10 @@ function Layout({ children }) {
 
     return (
         <MainWrapper>
+            <NavBar />
             {children}
         </MainWrapper>
-      )
+    )
 }
 
 export default Layout;

@@ -10,13 +10,13 @@ import Layout from './components/templates/layout'
 
 export default function App() {
   return (
-    <Layout>
-      <Router>
+    <Router>
+      <Layout>
         <Route exact path="/" component={Home} />
         <Route path="/projects" component={Projects} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
-      </Router>
-    </Layout>
+      </Layout>
+    </Router>
   );
 }
