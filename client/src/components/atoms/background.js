@@ -23,9 +23,9 @@ const StyledBackground = styled.div`
     }
 `;
 
-const Background = ({ img }) => {
-    return(
-        <StyledBackground img={img} />
+const Background = ({ img, testid }) => {
+    return (
+        <StyledBackground data-testid={testid} img={img} />
     )
 }
 
