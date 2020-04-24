@@ -7,7 +7,7 @@ import 'jest-styled-components';
 import { Number, Text } from '../stories/pageNumber.stories';
 
 
-describe('Renders Button component', () => {
+describe('Renders pageNumber component', () => {
 
     test('with a small size', () => {
         const { container, getByTestId } = render(<Number />);

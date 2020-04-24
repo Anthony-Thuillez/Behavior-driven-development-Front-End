@@ -7,12 +7,7 @@ import 'jest-styled-components';
 import { LabelRed, LabelWhite } from '../stories/label.stories';
 
 
-describe('Renders Button component', () => {
-    let spy;
-
-    beforeEach(() => {
-        spy = jest.fn();
-    });
+describe('Renders Label component', () => {
 
     test('with a LabelRed color state', () => {
         const { container, getByTestId } = render(<LabelRed />);

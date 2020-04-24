@@ -7,12 +7,7 @@ import 'jest-styled-components';
 import { Number, Text } from '../stories/digits.stories';
 
 
-describe('Renders Button component', () => {
-    let spy;
-
-    beforeEach(() => {
-        spy = jest.fn();
-    });
+describe('Renders Digits component', () => {
 
     test('with a small size', () => {
         const { container, getByTestId } = render(<Number />);

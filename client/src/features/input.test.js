@@ -6,7 +6,7 @@ import 'jest-styled-components';
 
 import { Small, Large, Disabled } from '../stories/input.stories';
 
-describe('Renders Button component', () => {
+describe('Renders Input component', () => {
     let spy;
 
     beforeEach(() => {
