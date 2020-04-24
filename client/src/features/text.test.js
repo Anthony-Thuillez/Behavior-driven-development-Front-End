@@ -29,14 +29,14 @@ describe('Renders Text component', () => {
         expect(text).toHaveStyleRule('font-weight', '800');
     });
 
-    test('with a Regular color state', () => {
+    test('with a RegularRed color state', () => {
         const { container, getByTestId } = render(<RegularRed />);
         expect(container).toBeTruthy();
         const text = getByTestId('red-text')
         expect(text).toHaveStyleRule('color', '#B72726');
     });
 
-    test('with a Regular color state', () => {
+    test('with a RegularRed color state', () => {
         const { container, getByTestId } = render(<RegularRed />);
         expect(container).toBeTruthy();
         const text = getByTestId('red-text')
