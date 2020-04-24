@@ -56,12 +56,6 @@ const Reset = createGlobalStyle`
         font-size: 100%;
         font-weight: 400;
     }
-
-    a {
-        background: transparent;
-        color: inherit;
-        text-decoration: none;
-    }
 `
 
 export default Reset
