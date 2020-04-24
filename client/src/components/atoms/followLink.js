@@ -34,8 +34,8 @@ export default FollowLink;
 /* Will show the right 'tag' within documentation */
 FollowLink.displayName = 'FollowLink';
 FollowLink.propTypes = {
-    className: PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    href: PropTypes.string,
+    src: PropTypes.string,
+    alt: PropTypes.string
 };

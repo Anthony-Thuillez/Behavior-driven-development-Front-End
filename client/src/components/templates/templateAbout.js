@@ -1,4 +1,5 @@
 import React from 'react';
+import Wrapper from '../atoms/wrapper';
 import Background from '../atoms/background';
 
 function TemplateAbout(props) {
@@ -6,7 +7,9 @@ function TemplateAbout(props) {
     return (
         <>
             <Background img={props.backgroundImg} />
-            <h2>{props.title}</h2>
+            <Wrapper>
+                <h2>{props.title}</h2>
+            </Wrapper>
         </>
       )
 }

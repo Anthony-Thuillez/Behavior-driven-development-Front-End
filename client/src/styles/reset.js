@@ -42,6 +42,22 @@ const Reset = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
     }
+
+    #root {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(183, 59, 38, 0.11) 20.95%, rgba(183, 39, 38, 0) 93.56%);
+            pointer-events: none;
+        }
+    }
     
     img {
         max-width: 100%;

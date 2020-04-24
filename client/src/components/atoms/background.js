@@ -1,17 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledBackground = styled.div`
-    z-index: -1;
+    z-index: -2;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-image: url(${props => props.img});
-    background-size: 790px auto;
-    background-position: center 110px;
+    background-size: 916px auto;
+    background-position: center bottom;
     background-repeat: no-repeat;
     pointer-events: none;
     &:before {
