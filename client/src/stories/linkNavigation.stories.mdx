@@ -1,15 +1,17 @@
 import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
-import { Default, Active} from './linkNavigation.stories';
 import { BrowserRouter as Router } from "react-router-dom";
-import linkNavigation from '../components/atoms/linkNavigation';
+import { Default, Active} from './linkNavigation.stories';
+import LinkNavigation from '../components/atoms/linkNavigation';
 
-<Meta title="Atoms|linkNavigation" component={linkNavigation} />
+<Meta title="Atoms|LinkNavigation" component={LinkNavigation} />
 
-# Item of Navigation
+# Link of Navigation
 
-This section describe all variant of Text Navigation component. You can play with 2 items: `default` and `active`.
+This section describe all variant of Link Navigation component. You can play with 2 items: `default` and `active`.
 
-<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flexWrap: 'wrap', width: 'auto', background: 'black', padding: '20px 20px' }}>
+The `active` class is added when href is equal to the url.
+
+<div style={{ display: 'flex', flexDirection: 'column', background: 'black', padding: '20px 20px' }}>
     <Router>
         <Default />
         <Active />
@@ -19,10 +21,10 @@ This section describe all variant of Text Navigation component. You can play wit
 Now let's see in details !
 
 ```javascript
-<linkNavigation text="Default Link" />
-<linkNavigation text="Active Link" />
+<LinkNavigation />
+<LinkNavigation to="current_url" text="Active Link" />
 ```
 
 # Props
 
-<Props of={linkNavigation} />
+<Props of={LinkNavigation} />
