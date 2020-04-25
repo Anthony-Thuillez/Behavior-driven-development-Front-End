@@ -42,6 +42,22 @@ const Reset = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
     }
+
+    #root {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(183, 59, 38, 0.11) 20.95%, rgba(183, 39, 38, 0) 93.56%);
+            pointer-events: none;
+        }
+    }
     
     img {
         max-width: 100%;
@@ -55,12 +71,6 @@ const Reset = createGlobalStyle`
     h1, h2, h3, h4, h5, h6 {
         font-size: 100%;
         font-weight: 400;
-    }
-
-    a {
-        background: transparent;
-        color: inherit;
-        text-decoration: none;
     }
 `
 

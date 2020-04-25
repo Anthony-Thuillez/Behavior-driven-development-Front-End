@@ -1,10 +1,13 @@
 import React from 'react';
+import Wrapper from '../atoms/wrapper';
 
 function TemplateProjects(props) {
 
     return (
         <>
-            <h2>{props.title}</h2>
+            <Wrapper>
+                <h2>{props.title}</h2>
+            </Wrapper>
         </>
       )
 }
