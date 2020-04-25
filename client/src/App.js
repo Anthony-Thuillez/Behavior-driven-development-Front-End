@@ -4,9 +4,10 @@ import Home from './pages/home';
 import Projects from './pages/projects';
 import About from './pages/about';
 import Contact from './pages/contact';
+import Backoffice from './pages/backoffice';
 
 // App components
-import Layout from './components/templates/layout'
+import Layout from './components/templates/layout';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/projects" component={Projects} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="/backoffice" component={Backoffice} />
       </Router>
     </Layout>
   );
