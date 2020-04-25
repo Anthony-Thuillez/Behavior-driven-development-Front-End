@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import WebFontLoader from 'webfontloader'
-import Reset from './styles/reset';
+import './reset.css';
 import App from './App';
 
 WebFontLoader.load({
@@ -15,7 +15,6 @@ WebFontLoader.load({
 
 ReactDOM.render(
   <React.StrictMode>
-    <Reset />
     <App />
   </React.StrictMode>,
   document.getElementById('root')

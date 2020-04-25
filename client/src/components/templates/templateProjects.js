@@ -1,7 +1,7 @@
 import React from 'react';
 import Wrapper from '../atoms/wrapper';
 
-function TemplateProjects(props) {
+const TemplateProjects = (props) => {
 
     return (
         <>

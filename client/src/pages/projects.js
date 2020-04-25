@@ -1,10 +1,12 @@
 import React from "react";
 import TemplateProjects from '../components/templates/templateProjects';
 
-export default function Projects() {
+const Projects = () => {
   return (
     <TemplateProjects
       title="Test de la page projects"
     />
   )
 }
+
+export default Projects;

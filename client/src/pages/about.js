@@ -2,11 +2,14 @@ import React from "react";
 import TemplateAbout from '../components/templates/templateAbout';
 import Img from '../assets/sergio.png';
 
-export default function About() {
+const About = () => {
   return (
     <TemplateAbout
       backgroundImg={Img}
-      title="Test de la page about"
+      title="Le professeur"
+      titleMirror="Sergio"
     />
   )
 }
+
+export default About;

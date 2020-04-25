@@ -1,51 +1,94 @@
 import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import { Color } from '../../styles/variables';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+
+const animateTitle = keyframes`
+  0% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`
+
+const animateTextMirror = keyframes`
+  0% {
+    transform: translateX(-80%) scaleX(-1);
+  }
+  100% {
+    transform: translateX(0) scaleX(-1);
+  }
+`
 
 const sizes = {
-    medium: {
-        fontSize: '93px',
-        lineHeight: '112px',
-    },
-    large: {
-        fontSize: '115px',
-        lineHeight: '169px',
-    }
+  medium: {
+      fontSize: '93px',
+      lineHeight: '112px',
+      bottom: '-35px'
+  },
+  large: {
+      fontSize: '115px',
+      lineHeight: '169px',
+      bottom: '-43px'
+  }
 }
 
-const colors = {
-    red: 'rgba(183, 39, 38, 0.86)',
-    white: 'rgba(255, 255, 255, 0.85)'
-}
-
-const StyledTitle = styled.span`
-    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-    font-family: Anton;
-    font-weight: 400;
+const StyledTitle = styled.h1`
+    position: relative;
+    margin-top: 100px;
+    font-family: 'Anton';
     font-size:  ${props => sizes[props.size].fontSize};
     line-height: ${props => sizes[props.size].lineHeight};
+    color: ${props => props.color};
     text-transform: uppercase;
-    padding-top: 8px;
-    color: ${props => colors[props.color]};
+    letter-spacing: 10px;
+    animation-name: ${animateTitle};
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    .textMirror {
+        z-index: -1;
+        position: absolute;
+        left: -47px;
+        bottom: ${props => sizes[props.size].bottom};
+        color: ${Color.redVeryTranslucid};
+        animation-name: ${animateTextMirror};
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        user-select: none;
+    }
 `;
 
-const Title = ({size, color, children, testid}) => {
+const Title = ({ text, size, color, textMirror}) => {
+
     return(
-        <StyledTitle size={size} color={color} data-testid={testid}>{children}</StyledTitle>
+        <StyledTitle size={size} color={color} >
+            {text}
+            {
+                textMirror && (
+                    <span className="textMirror">{textMirror}</span>
+                )
+            }
+        </StyledTitle>
     )
 }
+
+export default Title;
 
 /* Will show the right 'tag' within documentation */
 Title.displayName = 'Title';
 Title.defaultProps = {
+    text: 'Test titre',
     size: 'medium',
-    color: 'white'
+    color: '#fff',
+    textMirror: ''
 };
 
 Title.propTypes = {
- size: PropTypes.oneOf(['medium', 'large']),
- color: PropTypes.oneOf(['red', 'white']),
- children: PropTypes.element.isRequired
+  text: PropTypes.string.isRequired,
+  size: PropTypes.string,
+  color: PropTypes.string,
+  textMirror: PropTypes.string
 };
-
-export default Title;

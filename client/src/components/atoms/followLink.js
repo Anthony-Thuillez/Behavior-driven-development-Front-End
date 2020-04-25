@@ -15,7 +15,7 @@ const StyledFollowLink = styled.a`
     }
 `;
 
-function FollowLink(props) {
+const FollowLink = (props) => {
 
     return (
         <StyledFollowLink

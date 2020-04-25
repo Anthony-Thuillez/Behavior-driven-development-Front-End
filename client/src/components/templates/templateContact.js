@@ -1,7 +1,7 @@
 import React from 'react';
 import Wrapper from '../atoms/wrapper';
 
-function TemplateContact(props) {
+const TemplateContact = (props) => {
 
     return (
         <>

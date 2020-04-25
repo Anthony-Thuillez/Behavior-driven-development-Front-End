@@ -9,7 +9,7 @@ const StyledNavigation = styled.ul`
     }
 `;
 
-function Navigation(props) {
+const Navigation = (props) => {
 
     return (
         <StyledNavigation>

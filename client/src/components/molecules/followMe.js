@@ -15,7 +15,7 @@ const StyledFollowMe = styled.ul`
     }
 `;
 
-function FollowMe(props) {
+const FollowMe = (props) => {
 
     return (
         <StyledFollowMe>

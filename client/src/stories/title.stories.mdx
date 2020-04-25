@@ -1,26 +1,29 @@
 import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
-import { Medium, Large, MediumRed, LargeRed} from './title.stories';
+import { Default, TitleMedium, TitleLarge, TitleMediumWithTextMirror, TitleLargeWithTextMirror } from './title.stories';
 import Title from '../components/atoms/title';
 
 <Meta title="Atoms|Title" component={Title} />
 
 # Title
 
-This section describe all variant of Title component. You can play with 3 sizes: `medium` and `large` and 2 colors: `white` and `red`.
+This section describe all variant of Title component. You can play with 2 sizes: `medium` and `large` and textMirror: `null` and `string`.
 
-<div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', width: 'auto', background: 'black' }}>
-    <Medium />
-    <MediumRed />
-    <Large />
-    <LargeRed />
-
+<div style={{ padding: '20px 20px 100px', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'black', overflow: 'hidden' }}>
+    <Default />
+    <TitleMedium />
+    <TitleLarge />
+    <TitleMediumWithTextMirror />
+    <TitleLargeWithTextMirror />
 </div>
 
 Now let's see in details !
 
 ```javascript
-<Title size="large" color="red">Large Red Title</Title>
-<Title testid="medium-title"><span>Medium Title</span></Title>
+<Title />
+<Title text="Titre medium" size="medium" color="#fff" />
+<Title text="Titre large" size="large" color="#fff" />
+<Title text="Titre medium" size="medium" color="#fff" textMirror="Titre medium" />
+<Title text="Titre large" size="large" color="#fff" textMirror="Titre large" />
 ```
 
 # Props

@@ -25,7 +25,7 @@ const StyledNavbar = styled.nav`
     }
 `;
 
-function Navbar(props) {
+const Navbar = (props) => {
 
     return (
         <StyledNavbar>

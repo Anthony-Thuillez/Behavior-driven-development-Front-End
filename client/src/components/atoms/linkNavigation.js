@@ -14,6 +14,7 @@ const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     color: ${Color.whiteTranslucid};
     transition: color 0.2s ease-in-out;
+    user-select: none;
     &:after {
         position: absolute;
         content: '';
@@ -38,7 +39,7 @@ const StyledNavLink = styled(NavLink)`
     }
 `;
 
-function LinkNavigation(props) {
+const LinkNavigation = (props) => {
 
     return (
         <StyledNavLink exact to={props.to} activeClassName="active">
