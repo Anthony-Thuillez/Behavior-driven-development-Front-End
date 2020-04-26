@@ -41,7 +41,7 @@ body {
 
 #root {
     position: relative;
-    height: 100vh;
+    height: calc(100vh + 0.01px);
     overflow: hidden;
 }
 

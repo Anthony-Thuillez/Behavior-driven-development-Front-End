@@ -23,8 +23,8 @@ const TemplateProjects = (props) => {
                     <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
                     <BlockTextMargin width="363px" >
                         <Text text={props.text1} />
-                        <Text text={props.text2} />
-                        <Text text={props.text3} />
+                        <Text text={props.team} />
+                        <Text text={props.objectif} />
                     </BlockTextMargin>
                 </Wrapper>
             </Template>

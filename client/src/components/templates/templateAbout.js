@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Wrapper from '../atoms/wrapper';
 import Background from '../atoms/background';
 import Title from '../atoms/title';
@@ -15,22 +15,38 @@ const BlockTextMargin = styled(BlockText)`
     margin-top: 140px;
 `;
 
-const TemplateAbout = (props) => {
+const TemplateAbout = ({ data }) => {
+
+    const [page, setPage] = useState('sergio');
+
+    const handleScroll = (e) => {
+        if (e.deltaY < 0) {
+            setPage('sergio');
+        } else if (e.deltaY > 0) {
+            setPage('professor');
+        }
+    };
 
     return (
-        <>
-            <Background img={props.backgroundImg} />
-            <Template>
-                <Wrapper>
-                    <Title text={props.title} size="large" color={Color.whiteTranslucid} textMirror={props.titleMirror} />
-                    <BlockTextMargin width="387px" >
-                        <Text text={props.text1} />
-                        <Text text={props.text2} />
-                    </BlockTextMargin>
-                </Wrapper>
-            </Template>
-        </>
+        <Template onWheel={(e) => handleScroll(e)} >
+            <Wrapper>
+                <Background
+                    img={page === 'sergio' ? data.sergio.img : data.professor.img}
+                    imgWidth={page === 'sergio' ? "916px" : "584px"}
+                />
+                <Title
+                    text={page === 'sergio' ? data.sergio.title : data.professor.title}
+                    size="large"
+                    color={Color.whiteTranslucid}
+                    textMirror={page === 'sergio' ? data.sergio.titleMirror : data.professor.titleMirror}
+                />
+                <BlockTextMargin width="387px" >
+                    <Text text={page === 'sergio' ? data.sergio.text1 : data.professor.text1} />
+                    <Text text={page === 'sergio' ? data.sergio.text2 : data.professor.text2} />
+                </BlockTextMargin>
+            </Wrapper>
+        </Template>
       )
-}
+};
 
 export default TemplateAbout;

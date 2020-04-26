@@ -37,7 +37,7 @@ const TemplateHomepage = (props) => {
 
   return (
     <>
-      <Background img={props.backgroundImg} />
+      <Background img={props.backgroundImg} imgWidth="916px" />
       <StyledCible src={Cible} />
       <Template>
         <Wrapper>
