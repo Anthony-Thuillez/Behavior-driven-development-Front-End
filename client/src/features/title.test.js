@@ -50,13 +50,4 @@ describe('Renders Title component', () => {
     });
 
 
-    // test('with a LargeRed title state', () => {
-    //     const { container, getByTestId } = render(<LargeRed />);
-    //     expect(container).toBeTruthy();
-    //     const text = getByTestId('large-title')
-    //     expect(text).toHaveStyleRule('font-size', '115px');
-    //     expect(text).toHaveStyleRule('color', 'rgba(183,39,38,0.86)');
-    // });
-
-
 });
