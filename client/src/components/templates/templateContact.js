@@ -1,10 +1,22 @@
 import React from 'react';
+import Wrapper from '../atoms/wrapper';
+import Title from '../atoms/title';
+import { Color } from '../../styles/variables';
+import styled from 'styled-components';
 
-function TemplateContact(props) {
+const Template = styled.div`
+    padding-top: 100px;
+`;
+
+const TemplateContact = (props) => {
 
     return (
         <>
-            <h2>{props.title}</h2>
+            <Template>
+                <Wrapper>
+                    <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
+                </Wrapper>
+            </Template>
         </>
       )
 }

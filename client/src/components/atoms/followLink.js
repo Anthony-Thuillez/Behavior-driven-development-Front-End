@@ -15,16 +15,16 @@ const StyledFollowLink = styled.a`
     }
 `;
 
-function FollowLink(props) {
+const FollowLink = ({ className, href, imgSrc, imgAlt }) => {
 
     return (
         <StyledFollowLink
-            className={props.class}
-            href={props.href}
+            className={className}
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
         >
-            <img src={props.imgSrc} alt={props.imgAlt} />
+            <img src={imgSrc} alt={imgAlt} />
         </StyledFollowLink>
     )
 }
@@ -34,8 +34,8 @@ export default FollowLink;
 /* Will show the right 'tag' within documentation */
 FollowLink.displayName = 'FollowLink';
 FollowLink.propTypes = {
-    className: PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    href: PropTypes.string,
+    src: PropTypes.string,
+    alt: PropTypes.string
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoImg from '../../assets/logo.png';
+import PropTypes from 'prop-types';
 
 const StyledLink = styled(Link)`
     display: block;
@@ -9,13 +10,23 @@ const StyledLink = styled(Link)`
     height: 30px;
 `;
 
-function Logo({ testid }) {
+const Logo = ({ className }) => {
 
     return (
-        <StyledLink to="/" >
+        <StyledLink className={className} to="/" >
             <img data-testid={testid} src={LogoImg} alt="Logo" />
         </StyledLink>
     )
 }
 
 export default Logo;
+
+/* Will show the right 'tag' within documentation */
+Logo.displayName = 'Logo';
+Logo.defaultProps = {
+    className: null
+};
+
+Logo.propTypes = {
+    className: PropTypes.string
+};

@@ -1,8 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Logo from '../atoms/logo';
 import Navigation from '../molecules/navigation';
 import FollowMe from '../molecules/followMe';
+
+const animateNavbar = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+`
 
 const StyledNavbar = styled.nav`
     z-index: 10;
@@ -19,13 +28,19 @@ const StyledNavbar = styled.nav`
         flex-direction: column;
         justify-content: center;
         height: 100%;
+        transform: translateX(120%);
+        animation-name: ${animateNavbar};
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-delay: 0.8s;
+        animation-fill-mode: forwards;
         ul:last-child {
             margin-top: 20px;
         }
     }
 `;
 
-function Navbar(props) {
+const Navbar = (props) => {
 
     return (
         <StyledNavbar>

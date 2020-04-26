@@ -1,10 +1,33 @@
 import React from 'react';
+import Wrapper from '../atoms/wrapper';
+import Title from '../atoms/title';
+import BlockText from '../molecules/blockText';
+import Text from '../atoms/text'
+import { Color } from '../../styles/variables';
+import styled from 'styled-components';
 
-function TemplateProjects(props) {
+const Template = styled.div`
+    padding-top: 100px;
+`;
+
+const BlockTextMargin = styled(BlockText)`
+    margin-top: 45px;
+`;
+
+const TemplateProjects = (props) => {
 
     return (
         <>
-            <h2>{props.title}</h2>
+            <Template>
+                <Wrapper>
+                    <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
+                    <BlockTextMargin width="363px" >
+                        <Text text={props.text1} />
+                        <Text text={props.team} />
+                        <Text text={props.objectif} />
+                    </BlockTextMargin>
+                </Wrapper>
+            </Template>
         </>
       )
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import Title from '../components/atoms/title';
 
-export const Medium = () => <Title testid="medium-title"><span>Medium Title</span></Title>;
-export const Large = () => <Title size='large' testid="large-title"><span>Large Title</span></Title>;
-export const MediumRed = () => <Title color='red' testid="medium-red-title"><span>Medium Red Title</span></Title>;
-export const LargeRed = () => <Title color='red' size='large' testid="large-title"><span>Large Red Title</span></Title>;
-
+export const Default = () => <Title />
+export const TitleMedium = () => <Title text="Titre medium" size="medium" color="#fff" />
+export const TitleLarge = () => <Title text="Titre large" size="large" color="#fff" />
+export const TitleMediumWithTextMirror = () => <Title text="Titre medium" size="medium" color="#fff" textMirror="Titre medium" />
+export const TitleLargeWithTextMirror = () => <Title text="Titre large" size="large" color="#fff" textMirror="Titre large" />

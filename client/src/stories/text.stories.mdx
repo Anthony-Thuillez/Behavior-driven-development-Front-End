@@ -1,25 +1,23 @@
 import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
-import { Regular, Bold, RegularRed} from './text.stories';
+import { Default, TextCustom } from './text.stories';
 import Text from '../components/atoms/text';
 
 <Meta title="Atoms|Text" component={Text} />
 
 # Text
 
-This section describe all variant of Text component. You can play with 3 types: `regular`, `bold`, `regularRed` and 2 colors: `white` and `red`.
+Example :
 
 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', width: 'auto', background: 'black', padding: '20px 20px' }}>
-    <Regular />
-    <Bold />
-    <RegularRed />
+    <Default />
+    <TextCustom />
 </div>
 
-Now let's see in details !
+How to use :
 
 ```javascript
-<Text weight="regular" color="white">Regular Text</Text>
-<Text weight="bold" color="white">Bold Text</Text>
-<Text weight="regularRed" color="red">Regular red Text</Text>
+<Text />
+<Text text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices ac odio eget congue. Quisque vitae ipsum aliquet, pulvinar odio venenatis, ornare leo. Sed vitae ex libero. Nullam nec orci volutpat eros malesuada ultrices non vitae nunc. Cras et vestibulum mauris, at posuere mauris. Proin ullamcorper, nisi ac tincidunt dapibus, nisi elit ultricies arcu, interdum vulputate nunc orci quis risus. Quisque elementum gravida fermentum. Vivamus interdum ligula ut placerat interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc vitae mollis mi." />
 ```
 
 # Props

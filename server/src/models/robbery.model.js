@@ -8,11 +8,11 @@ const RobberySchema = new mongoose.Schema({
     context: { type: String, required: true },
     team: { type: String, required: true },
     goal: { type: String, required: true },
-    details1Val: { type: Number, required: true },
+    details1Val: { type: String, required: true },
     details1Text: { type: String, required: true },
-    details2Val: { type: Number, required: true },
+    details2Val: { type: String, required: true },
     details2Text: { type: String, required: true },
-    details3Val: { type: Number, required: true },
+    details3Val: { type: String, required: true },
     details3Text: { type: String, required: true },
 });
 

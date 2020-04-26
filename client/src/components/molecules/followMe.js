@@ -15,15 +15,15 @@ const StyledFollowMe = styled.ul`
     }
 `;
 
-function FollowMe(props) {
+const FollowMe = (props) => {
 
     return (
         <StyledFollowMe>
             <li>
-                <FollowLink class="ico-yt" href="https://www.youtube.com/channel/UCI9tBPaYZ8kJEU0PaQLWfEw" imgSrc={Yt} imgAlt="Logo Youtube" />
+                <FollowLink className="ico-yt" href="https://www.youtube.com/channel/UCI9tBPaYZ8kJEU0PaQLWfEw" imgSrc={Yt} imgAlt="Logo Youtube" />
             </li>
             <li>
-                <FollowLink class="ico-insta" href="https://www.instagram.com/lacasadepapel/?hl=fr" imgSrc={Insta} imgAlt="Logo Instagram" />
+                <FollowLink className="ico-insta" href="https://www.instagram.com/lacasadepapel/?hl=fr" imgSrc={Insta} imgAlt="Logo Instagram" />
             </li>
         </StyledFollowMe>
     )
