@@ -39,10 +39,10 @@ const StyledNavLink = styled(NavLink)`
     }
 `;
 
-const LinkNavigation = ({ className, to, text}) => {
+const LinkNavigation = ({ className, to, text, testid }) => {
 
     return (
-        <StyledNavLink className={className} exact to={to} activeClassName="active">
+        <StyledNavLink data-testid={testid} className={className} exact to={to} activeClassName="active">
             {text}
         </StyledNavLink>
     )
