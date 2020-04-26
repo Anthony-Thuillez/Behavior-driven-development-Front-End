@@ -23,20 +23,22 @@ const StyledBackground = styled.div`
     }
 `;
 
-const Background = ({ img, testid }) => {
+const Background = ({ className, img, testid }) => {
     return (
-        <StyledBackground data-testid={testid} img={img} />
+        <StyledBackground className={className} data-testid={testid} img={img} />
     )
 }
 
 /* Will show the right 'tag' within documentation */
 Background.displayName = 'Background';
 Background.defaultProps = {
-    img: '#',
+    className: null,
+    img: '#'
 };
 
 Background.propTypes = {
-    img: PropTypes.string,
+    className: PropTypes.string,
+    img: PropTypes.string
 };
 
 export default Background;

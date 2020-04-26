@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Color } from '../../styles/variables';
 import PropTypes from 'prop-types';
 
 const animateTitle = keyframes`
   0% {
-    transform: translateX(20%);
+    transform: translateX(10%);
   }
   100% {
     transform: translateX(0%);
@@ -14,7 +14,7 @@ const animateTitle = keyframes`
 
 const animateTextMirror = keyframes`
   0% {
-    transform: translateX(-80%) scaleX(-1);
+    transform: translateX(-60%) scaleX(-1);
   }
   100% {
     transform: translateX(0) scaleX(-1);
@@ -23,56 +23,62 @@ const animateTextMirror = keyframes`
 
 const sizes = {
   medium: {
-      fontSize: '93px',
-      lineHeight: '112px',
-      bottom: '-35px'
+    fontSize: '93px',
+    lineHeight: '112px',
+    bottom: '-35px'
   },
   large: {
-      fontSize: '115px',
-      lineHeight: '169px',
-      bottom: '-43px'
+    fontSize: '115px',
+    lineHeight: '169px',
+    bottom: '-43px'
   }
 }
 
 const StyledTitle = styled.h1`
-    position: relative;
-    margin-top: 100px;
-    font-family: 'Anton';
-    font-size:  ${props => sizes[props.size].fontSize};
-    line-height: ${props => sizes[props.size].lineHeight};
-    color: ${props => props.color};
-    text-transform: uppercase;
-    letter-spacing: 10px;
-    animation-name: ${animateTitle};
+  position: relative;
+  font-family: 'Anton';
+  font-size:  ${props => sizes[props.size].fontSize};
+  line-height: ${props => sizes[props.size].lineHeight};
+  color: ${props => props.color};
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  animation-name: ${animateTitle};
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  .textMirror {
+    z-index: -1;
+    position: absolute;
+    left: -47px;
+    bottom: ${props => sizes[props.size].bottom};
+    color: ${Color.redVeryTranslucid};
+    animation-name: ${animateTextMirror};
     animation-duration: 1s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
-    .textMirror {
-        z-index: -1;
-        position: absolute;
-        left: -47px;
-        bottom: ${props => sizes[props.size].bottom};
-        color: ${Color.redVeryTranslucid};
-        animation-name: ${animateTextMirror};
-        animation-duration: 1s;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        user-select: none;
-    }
+    user-select: none;
+  }
 `;
 
-const Title = ({ text, size, color, textMirror}) => {
+const Title = ({ className, text, size, color, textMirror}) => {
 
-    return(
-        <StyledTitle size={size} color={color} >
-            {text}
-            {
-                textMirror && (
-                    <span className="textMirror">{textMirror}</span>
-                )
-            }
-        </StyledTitle>
-    )
+  return(
+    <StyledTitle className={className} size={size} color={color} >
+      {text.split('\n').map((item, key) => {
+        return (
+          <Fragment key={key}>
+            {item}
+            <br/>
+          </Fragment>
+        )
+      })}
+      {
+        textMirror && (
+          <span className="textMirror">{textMirror}</span>
+        )
+      }
+    </StyledTitle>
+  )
 }
 
 export default Title;
@@ -80,13 +86,15 @@ export default Title;
 /* Will show the right 'tag' within documentation */
 Title.displayName = 'Title';
 Title.defaultProps = {
-    text: 'Test titre',
+    className: null,
+    text: 'Test title',
     size: 'medium',
     color: '#fff',
     textMirror: ''
 };
 
 Title.propTypes = {
+  className: PropTypes.string,
   text: PropTypes.string.isRequired,
   size: PropTypes.string,
   color: PropTypes.string,

@@ -6,6 +6,10 @@ import Cible from '../../assets/cibleHome.svg';
 import { Color } from '../../styles/variables';
 import styled, { keyframes } from 'styled-components';
 
+const Template = styled.div`
+    padding-top: 100px;
+`;
+
 const animateCible = keyframes`
   0% {
     transform: translateX(-50%) rotate(180deg);
@@ -35,9 +39,11 @@ const TemplateHomepage = (props) => {
     <>
       <Background img={props.backgroundImg} />
       <StyledCible src={Cible} />
-      <Wrapper>
-        <Title text={props.title} size="large" color={Color.whiteTranslucid} textMirror={props.titleMirror} />
-      </Wrapper>
+      <Template>
+        <Wrapper>
+          <Title text={props.title} size="large" color={Color.whiteTranslucid} textMirror={props.titleMirror} />
+        </Wrapper>
+      </Template>
     </>
   )
 }

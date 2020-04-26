@@ -4,7 +4,7 @@ import TemplateContact from '../components/templates/templateContact';
 const Contact = () => {
   return (
     <TemplateContact
-      title="Test de la page contact"
+      title={'À votre \n écoute'}
     />
   )
 }

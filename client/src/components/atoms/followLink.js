@@ -15,16 +15,16 @@ const StyledFollowLink = styled.a`
     }
 `;
 
-const FollowLink = (props) => {
+const FollowLink = ({ className, href, imgSrc, imgAlt }) => {
 
     return (
         <StyledFollowLink
-            className={props.class}
-            href={props.href}
+            className={className}
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
         >
-            <img src={props.imgSrc} alt={props.imgAlt} />
+            <img src={imgSrc} alt={imgAlt} />
         </StyledFollowLink>
     )
 }

@@ -1,57 +1,40 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import { Color } from '../../styles/variables';
+import PropTypes from 'prop-types';
 
-const weights = {
-    regular: {
-        fontSize: '16px',
-        fontWeight: 'normal',
-        lineHeight: '22px',
-    },
-    bold: {
-        fontSize: '16px',
-        fontWeight: '800',
-        lineHeight: '22px',
-    },
-    regularRed: {
-      fontSize: '23px',
-      fontWeight: 'normal',
-      lineHeight: '22px',
-    }
-}
-
-const colors = {
-    red: '#B72726',
-    white: 'rgba(255, 255, 255, 0.85)'
-}
-
-const StyledText = styled.span`
-    font-family: Avenir;
-    font-style: normal;
-    font-size:  ${props => weights[props.weight].fontSize};
-    font-weight:  ${props => weights[props.weight].fontWeight};
-    line-height: ${props => weights[props.weight].lineHeight};
-    padding-top: 8px;
-    color: ${props => colors[props.color]};
+const StyledText = styled.p`
+    font-family: 'Avenir';
+    line-height: 22px;
+    color: ${Color.whiteTranslucid};
 `;
 
-const Text = ({weight, color, children, testid}) => {
-    return(
-        <StyledText weight={weight} color={color} data-testid={testid}>{children}</StyledText>
+const Text = ({ className, text }) => {
+    return (
+        <StyledText className={className}>
+            {text.split('\n').map((item, key) => {
+                return (
+                    <Fragment key={key}>
+                    {item}
+                    <br/>
+                    </Fragment>
+                )
+            })}
+        </StyledText>
     )
 }
+
+
+export default Text;
 
 /* Will show the right 'tag' within documentation */
 Text.displayName = 'Text';
 Text.defaultProps = {
-    weight: 'regular',
-    color: 'white'
+    className: null,
+    text: 'Test text'
 };
 
 Text.propTypes = {
- weight: PropTypes.oneOf(['regular', 'bold', 'regularRed']),
- color: PropTypes.oneOf(['red', 'white']),
- children: PropTypes.element.isRequired
+    className: PropTypes.string,
+    text: PropTypes.string.isRequired
 };
-
-export default Text;

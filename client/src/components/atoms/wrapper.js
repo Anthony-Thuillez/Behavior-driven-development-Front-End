@@ -11,10 +11,10 @@ const StyledWrapper = styled.div`
     }
 `;
 
-function Wrapper({ children }) {
+function Wrapper({ className, children }) {
 
     return (
-        <StyledWrapper>
+        <StyledWrapper className={className}>
             {children}
         </StyledWrapper>
     )

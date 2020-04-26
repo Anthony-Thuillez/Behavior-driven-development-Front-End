@@ -9,6 +9,7 @@ WebFontLoader.load({
     families: [
       'Roboto:300,400,900:latin-ext',
       'Anton',
+      'Avenir'
     ]
   }
 })

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { Color } from '../../styles/variables';
+import PropTypes from 'prop-types';
 
 const StyledNavLink = styled(NavLink)`
     position: relative;
@@ -39,11 +39,11 @@ const StyledNavLink = styled(NavLink)`
     }
 `;
 
-const LinkNavigation = (props) => {
+const LinkNavigation = ({ className, to, text}) => {
 
     return (
-        <StyledNavLink exact to={props.to} activeClassName="active">
-            {props.text}
+        <StyledNavLink className={className} exact to={to} activeClassName="active">
+            {text}
         </StyledNavLink>
     )
 }
@@ -53,11 +53,13 @@ export default LinkNavigation;
 /* Will show the right 'tag' within documentation */
 LinkNavigation.displayName = 'LinkNavigation';
 LinkNavigation.defaultProps = {
+    className: null,
     to: '/',
     text: 'Default Link'
 };
 
 LinkNavigation.propTypes = {
+    className: PropTypes.string,
     to: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
 };
