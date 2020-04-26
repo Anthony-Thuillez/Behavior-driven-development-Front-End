@@ -10,7 +10,7 @@ const StyledLink = styled(Link)`
     height: 30px;
 `;
 
-const Logo = ({ className }) => {
+const Logo = ({ className, testid }) => {
 
     return (
         <StyledLink className={className} to="/" >
