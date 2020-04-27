@@ -71,7 +71,7 @@ const TemplateProjects = (props) => {
         <>
             <Template>
                 <Wrapper>
-                    <PageNumber currentPage="1" totalPage="2" />
+                    <PageNumber currentPage={1} totalPage={2} />
                     <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
                     <div className="projectContent" >
                         <BlockTextMargin width="363px" >
@@ -80,7 +80,7 @@ const TemplateProjects = (props) => {
                             <Text text={props.objectif} />
                         </BlockTextMargin>
                         <div className="imageContent" >
-                            <img className="img projet" src={ImgFabriqueDeLaMonnaie} alt="image du projet" />
+                            <img className="img projet" src={ImgFabriqueDeLaMonnaie} alt="monument" />
                             <img className="img cible" src={ImgCible} alt="cible" />
                         </div>
                     </div>

@@ -31,7 +31,7 @@ const TemplateAbout = ({ data }) => {
     return (
         <Template onWheel={(e) => handleScroll(e)} >
             <Wrapper>
-                <PageNumber currentPage={page === 'sergio' ? 1 : 2} totalPage="2" />
+                <PageNumber currentPage={page === 'sergio' ? 1 : 2} totalPage={2} />
                 <Background
                     img={page === 'sergio' ? data.sergio.img : data.professor.img}
                     imgWidth={page === 'sergio' ? "916px" : "584px"}
