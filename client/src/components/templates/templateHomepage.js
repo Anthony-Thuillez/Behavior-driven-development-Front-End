@@ -8,6 +8,9 @@ import styled, { keyframes } from 'styled-components';
 
 const Template = styled.div`
     padding-top: 100px;
+    @media screen and (max-height: 899px) {
+        padding-top: 80px;
+    }
 `;
 
 const animateCible = keyframes`
