@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import TemplateContact from '../components/templates/templateContact';
 import axios from 'axios';
 
 export default function Backoffice() {
@@ -138,7 +137,7 @@ export default function Backoffice() {
                     <div ref={idRef} key={index} style={{ display: 'flex', justifyContent: 'space-around' }}>
                         <div className="image-container">
                             {!isEditing ?
-                                (<img alt="upload-image" width="20px" src={"http://localhost:3001/public/uploads/" + robbery.title + ".png"} />)
+                                (<img alt="upload" width="20px" src={"http://localhost:3001/public/uploads/" + robbery.title + ".png"} />)
                                 :
                                 (<input name="myImage" ref={imageRef} type="file" onChange={(e) => uploadImage(e)} />)
                             }

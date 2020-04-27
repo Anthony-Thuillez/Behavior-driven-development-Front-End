@@ -59,8 +59,9 @@ const Template = styled.div`
     }
 `;
 
-const BlockTextMargin = styled(BlockText)`
+const StyledBlockText = styled(BlockText)`
     margin-top: 35px;
+    max-width: 363px;
 `;
 
 const DatasMargin = styled(Datas)`
@@ -76,11 +77,11 @@ const TemplateProjects = (props) => {
                     <PageNumber currentPage={1} totalPage={2} />
                     <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
                     <div className="projectContent" >
-                        <BlockTextMargin width="363px" >
+                        <StyledBlockText>
                             <Text text={props.text1} />
                             <Text text={props.team} />
                             <Text text={props.objectif} />
-                        </BlockTextMargin>
+                        </StyledBlockText>
                         <div className="imageContent" >
                             <img className="img projet" src={props.img} alt="monument" />
                             <img className="img cible" src={ImgCible} alt="cible" />

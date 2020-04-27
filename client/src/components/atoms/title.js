@@ -100,7 +100,8 @@ Title.defaultProps = {
 Title.propTypes = {
   className: PropTypes.string,
   text: PropTypes.string.isRequired,
-  size: PropTypes.string,
+    /** Optionnal sizes */
+  size: PropTypes.oneOf(['medium', 'large']),
   color: PropTypes.string,
   textMirror: PropTypes.string
 };

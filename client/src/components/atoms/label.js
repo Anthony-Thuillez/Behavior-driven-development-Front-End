@@ -1,41 +1,45 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-const colors = {
-    red: '#B72726',
-    white: '#FFFFFF'
-}
+import PropTypes from 'prop-types';
+import { Color } from '../../styles/variables';
 
 const StyledLabel = styled.label`
-    font-family: Avenir;
-    font-weight: 500;
-    font-size:  20px;
-    line-height: 24px;
-    padding-bottom: 8px;
-    color: ${props => colors[props.color]};
+    font-family: 'Avenir';
+    font-size:  17px;
+    color: ${Color.whiteTranslucid};
+    span {
+        color: red;
+    }
+    & + input {
+        margin-top: 20px;
+    }
 `;
 
-const Label = ({color, children, testid}) => {
+const Label = ({ className, text, isRequired }) => {
     return(
-        <StyledLabel color={color} data-testid={testid}>{children}</StyledLabel>
+        <StyledLabel className={className} >
+            {text}
+            {
+                isRequired && (
+                    <span> * </span>
+                )
+            }
+        </StyledLabel>
     )
 }
+
+export default Label;
 
 /* Will show the right 'tag' within documentation */
 Label.displayName = 'Label';
 Label.defaultProps = {
-    color: 'white',
-    testid: 'label'
+    className: null,
+    text: 'Test label',
+    isRequired: true
 };
 
 Label.propTypes = {
-/** Optionnal colors */
- color: PropTypes.oneOf(['red', 'white']),
-/** Children as ONE element */
- children: PropTypes.element.isRequired,
-/** Optionnal testid */
- testid: PropTypes.string
+    className: PropTypes.string,
+    text: PropTypes.string.isRequired,
+    isRequired: PropTypes.bool.isRequired
 };
-
-export default Label;

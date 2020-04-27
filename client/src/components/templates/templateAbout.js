@@ -15,8 +15,9 @@ const Template = styled.div`
     }
 `;
 
-const BlockTextMargin = styled(BlockText)`
+const StyledBlockText = styled(BlockText)`
     margin-top: 140px;
+    max-width: 387px;
 `;
 
 const TemplateAbout = ({ data }) => {
@@ -45,10 +46,10 @@ const TemplateAbout = ({ data }) => {
                     color={Color.whiteTranslucid}
                     textMirror={page === 'sergio' ? data.sergio.titleMirror : data.professor.titleMirror}
                 />
-                <BlockTextMargin width="387px" >
+                <StyledBlockText>
                     <Text text={page === 'sergio' ? data.sergio.text1 : data.professor.text1} />
                     <Text text={page === 'sergio' ? data.sergio.text2 : data.professor.text2} />
-                </BlockTextMargin>
+                </StyledBlockText>
             </Wrapper>
         </Template>
       )
