@@ -1,21 +1,25 @@
 import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
-import { Numbers } from './datas.stories';
+import { Default } from './datas.stories';
 import Datas from '../components/molecules/datas';
 
 <Meta title="Molecule|Datas" component={Datas} />
 
 # Datas
 
-This section describes the main Datas component.
+Example :
 
-<div style={{ display: 'flex', justifyContent: 'space-between', width: '100%',backgroundColor: '#140C0B', padding: '20px' }}>
-    <Numbers />
+<div style={{ backgroundColor: '#140C0B', padding: '20px' }}>
+    <Default />
 </div>
 
-Now let's see in details !
+How to use :
 
 ```javascript
-<Datas testid="main-form" onSubmit={props.onSubmit}></Datas>
+<Datas>
+    <Digits />
+    <Digits />
+    <Digits />
+</Datas>
 ```
 
 # Props

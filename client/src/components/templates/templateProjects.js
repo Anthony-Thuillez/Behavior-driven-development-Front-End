@@ -7,6 +7,8 @@ import { Color } from '../../styles/variables';
 import styled, { keyframes } from 'styled-components';
 import ImgFabriqueDeLaMonnaie from '../../assets/fabriqueDeLaMonnaie.png';
 import ImgCible from '../../assets/cibleProject.svg';
+import Digits from '../atoms/digits';
+import Datas from '../molecules/datas';
 
 const animateCible = keyframes`
     0% {
@@ -28,25 +30,22 @@ const Template = styled.div`
     .projectContent {
         display: flex;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: stretch;
     }
     .imageContent {
         z-index: -2;
         position: relative;
-        height: 717px;
         width: 628px;
         .img {
             position: absolute;
-            height: 100%;
             max-width: none;
             &.projet {
                 top: -252px;
                 left: -35px;
             }
             &.cible {
-                top: -320px;
+                top: -324px;
                 left: -35px;
-                height: auto;
                 transform: translate(-250px, 350px);
                 animation-name: ${animateCible};
                 animation-duration: 2s;
@@ -58,7 +57,11 @@ const Template = styled.div`
 `;
 
 const BlockTextMargin = styled(BlockText)`
-    margin-top: 45px;
+    margin-top: 35px;
+`;
+
+const DatasMargin = styled(Datas)`
+    margin: 50px 0 40px;
 `;
 
 const TemplateProjects = (props) => {
@@ -79,6 +82,11 @@ const TemplateProjects = (props) => {
                             <img className="img cible" src={ImgCible} alt="cible" />
                         </div>
                     </div>
+                    <DatasMargin>
+                        <Digits digit="2,400,000,000" name="d'euros" />
+                        <Digits digit="11" name="jours" />
+                        <Digits digit="67" name="otages" />
+                    </DatasMargin>
                 </Wrapper>
             </Template>
         </>

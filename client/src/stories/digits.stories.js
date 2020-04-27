@@ -1,6 +1,6 @@
 import React from 'react';
 import Digits from '../components/atoms/digits';
 
-export const Number = () => <Digits type="number" testid="digits-number"><span>140,000,000</span></Digits>;
-export const Text = () => <Digits type="text" testid="digits-text"><span>d'euros déversés sur Madrid</span></Digits>;
+export const Default = () => <Digits />;
+export const Custom = () => <Digits digit="2,400,000,000" name="d'euros" />;
 
