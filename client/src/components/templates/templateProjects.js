@@ -1,5 +1,6 @@
 import React from 'react';
 import Wrapper from '../atoms/wrapper';
+import PageNumber from '../atoms/pageNumber';
 import Title from '../atoms/title';
 import BlockText from '../molecules/blockText';
 import Text from '../atoms/text'
@@ -70,6 +71,7 @@ const TemplateProjects = (props) => {
         <>
             <Template>
                 <Wrapper>
+                    <PageNumber currentPage="1" totalPage="2" />
                     <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
                     <div className="projectContent" >
                         <BlockTextMargin width="363px" >

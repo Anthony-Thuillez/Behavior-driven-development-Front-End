@@ -1,24 +1,22 @@
 import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
-import { Number, Text} from './pageNumber.stories';
+import { Default, Custom} from './pageNumber.stories';
 import PageNumber from '../components/atoms/pageNumber';
 
 <Meta title="Atoms|PageNumber" component={PageNumber} />
 
 # Page Number
 
-This section describe all variant of PageNumber component. You can play with 2 types: `number` and `text`.
+This section describe all variant of PageNumber component. You can play with 2 types: `currentPage` and `totalPage`.
 
-<div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap', width: 'auto', background: 'black', padding: '20px 20px'  }}>
-    <Number />
-    <Text />
-
+<div style={{ position: 'relative', height: '300px', background: 'black', padding: '20px 20px'  }}>
+    <Custom />
 </div>
 
 Now let's see in details !
 
 ```javascript
-<PageNumber type="number" testid="page-number-int"><span>1/2</span></PageNumber>
-<PageNumber type="text" testid="page-number-text"><span>Scroll</span></PageNumber>
+<PageNumber />
+<PageNumber currentPage="6" totalPage="8" />
 ```
 
 # Props

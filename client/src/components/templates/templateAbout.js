@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Wrapper from '../atoms/wrapper';
 import Background from '../atoms/background';
+import PageNumber from '../atoms/pageNumber';
 import Title from '../atoms/title';
 import BlockText from '../molecules/blockText';
 import Text from '../atoms/text'
@@ -30,6 +31,7 @@ const TemplateAbout = ({ data }) => {
     return (
         <Template onWheel={(e) => handleScroll(e)} >
             <Wrapper>
+                <PageNumber currentPage={page === 'sergio' ? 1 : 2} totalPage="2" />
                 <Background
                     img={page === 'sergio' ? data.sergio.img : data.professor.img}
                     imgWidth={page === 'sergio' ? "916px" : "584px"}
