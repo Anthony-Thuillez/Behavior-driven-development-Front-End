@@ -1,0 +1,24 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { BrowserRouter as Router } from "react-router-dom";
+import { DisplayLogo } from './logo.stories';
+import Logo from '../components/atoms/logo';
+
+<Meta title="Atoms|Logo" component={Logo} />
+
+# Logo
+
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px', backgroundColor: '#140C0B', padding: '20px' }}>
+    <Router>
+        <DisplayLogo />
+    </Router>
+</div>
+
+How to use :
+
+```javascript
+<Logo />
+```
+
+# Props
+
+<Props of={Logo} />

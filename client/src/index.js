@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import WebFontLoader from 'webfontloader'
-import Reset from './styles/reset';
+import './reset.css';
 import App from './App';
 
 WebFontLoader.load({
@@ -9,13 +9,13 @@ WebFontLoader.load({
     families: [
       'Roboto:300,400,900:latin-ext',
       'Anton',
+      'Avenir'
     ]
   }
 })
 
 ReactDOM.render(
   <React.StrictMode>
-    <Reset />
     <App />
   </React.StrictMode>,
   document.getElementById('root')

@@ -45,18 +45,26 @@ describe('Renders Button component', () => {
         expect(spy).toHaveBeenCalledTimes(0);
     });
 
-    test('with a disabled state', () => {
-        const { container, getByTestId } = render(<Disabled />);
+    test('with a disabled input', () => {
+        const { container, getByTestId } = render(<Disabled onChange={spy} />);
         expect(container).toBeTruthy();
         const input = getByTestId('disabled-input')
-        expect(spy).toHaveBeenCalledTimes(0);
+        fireEvent.change(input, { target: { value: '' } })
+        expect(input.value).toBe('')
     });
 
-    test('with a input work', () => {
-        const { container, getByTestId } = render(<Small />);
+    test('with large input', () => {
+        const { getByTestId } = render(<Large onChange={spy} />);
+        const input = getByTestId('large-input')
+        fireEvent.change(input, { target: { value: 'test' } })
+        expect(input.value).toBe('test')
+    })
+
+    test('with large input', () => {
+        const { getByTestId } = render(<Small onChange={spy} />);
         const input = getByTestId('small-input')
-        fireEvent.change(input, { target: { value: '23' } })
-        expect(input.value).toBe('23')
+        fireEvent.change(input, { target: { value: 'test' } })
+        expect(input.value).toBe('test')
     })
 
 });

@@ -1,4 +1,11 @@
 import React from 'react';
 import Datas from '../components/molecules/datas';
+import Digits from '../components/atoms/digits';
 
-export const Numbers = props => <Datas testid="main-form" onSubmit={props.onSubmit}></Datas>;
+export const Default = () => (
+    <Datas>
+        <Digits />
+        <Digits />
+        <Digits />
+    </Datas>
+);

@@ -1,6 +1,5 @@
 import React from 'react';
 import Text from '../components/atoms/text';
 
-export const Regular = () => <Text testid="regular-text"><span>Regular Text</span></Text>;
-export const Bold= () => <Text weight='bold' testid="bold-text"><span>Bold Text</span></Text>;
-export const RegularRed= () => <Text weight='regularRed' color='red' testid="red-text"><span>Regular Red Text</span></Text>;
+export const Default = () => <Text />;
+export const TextCustom= () => <Text text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices ac odio eget congue. Quisque vitae ipsum aliquet, pulvinar odio venenatis, ornare leo. Sed vitae ex libero. Nullam nec orci volutpat eros malesuada ultrices non vitae nunc. Cras et vestibulum mauris, at posuere mauris. Proin ullamcorper, nisi ac tincidunt dapibus, nisi elit ultricies arcu, interdum vulputate nunc orci quis risus. Quisque elementum gravida fermentum. Vivamus interdum ligula ut placerat interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc vitae mollis mi." />;

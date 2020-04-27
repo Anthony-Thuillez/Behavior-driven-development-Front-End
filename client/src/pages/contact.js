@@ -1,10 +1,14 @@
 import React from "react";
 import TemplateContact from '../components/templates/templateContact';
+import ImgTel from '../assets/tel.png';
 
-export default function Contact() {
+const Contact = () => {
   return (
     <TemplateContact
-      title="Test de la page contact"
+      img={ImgTel}
+      title={'À votre \n écoute'}
     />
   )
 }
+
+export default Contact;

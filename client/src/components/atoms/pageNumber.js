@@ -1,53 +1,51 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Color } from '../../styles/variables';
+import PropTypes from 'prop-types';
 
-const types = {
-    number: {
-        fontFamily: 'Anton',
-        fontSize: '53px',
-        fontWeight: 'normal',
-        lineHeight: '64px',
-    },
-    text: {
-        fontFamily: 'Avenir',
-        fontSize: '16px',
-        fontWeight: 'normal',
-        lineHeight: '19px',
-    }
-}
-
-
-
-const StyledPageNumber = styled.span`
-    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-    font-family: ${props => types[props.type].fontFamily};
-    font-style: normal;
-    font-size:  ${props => types[props.type].fontSize};
-    font-weight:  ${props => types[props.type].fontWeight};
-    line-height: ${props => types[props.type].lineHeight};
+const StyledPageNumber = styled.div`
+    z-index: 9;
+    position: absolute;
+    top: 40%;
+    right: 16%;
+    min-width: 100px;
     transform: rotate(-90deg);
-    text-transform: uppercase;
-    padding-top: 8px;
-    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: ${Color.white};
+    span {
+        font-family: 'Anton';
+        font-size: 53px;
+    }
+    p {
+        font-family: 'Avenir';
+        font-size: 16px;
+        text-transform: uppercase;
+    }
 `;
 
-const PageNumber = ({type, children, testid}) => {
+const PageNumber = ({ className, currentPage, totalPage }) => {
     return(
-        <StyledPageNumber type={type} data-testid={testid}>{children}</StyledPageNumber>
+        <StyledPageNumber className={className} >
+            <span>{currentPage} / {totalPage}</span>
+            <p>Scroll</p>
+        </StyledPageNumber>
     )
 }
+
+export default PageNumber;
 
 /* Will show the right 'tag' within documentation */
 PageNumber.displayName = 'Page Number';
 PageNumber.defaultProps = {
-    type: 'number'
+    className: null,
+    currentPage: 1,
+    totalPage: 2
 };
 
 PageNumber.propTypes = {
-/** Optionnal types */
- type: PropTypes.oneOf(['number', 'text']),
- children: PropTypes.element.isRequired
+    className: PropTypes.string,
+    currentPage: PropTypes.number.isRequired,
+    totalPage: PropTypes.number.isRequired
 };
-
-export default PageNumber;

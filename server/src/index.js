@@ -6,6 +6,7 @@ import cors from 'cors';
 
 /* Imports routes */
 import robberyRoute from './routes/robbery.route';
+import imageRoute from './routes/image.route';
 
 /**
  * @desc Setup .env config
@@ -31,6 +32,7 @@ mongoose.Promise = global.Promise;
  */
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use('/public/uploads', express.static('public/uploads'));
 
 
 /**
@@ -38,17 +40,8 @@ app.use(bodyParser.json());
  */
 app.use(cors());
 app.use(robberyRoute);
+app.use(imageRoute);
 
-/**
-* @desc Error handling middleware
-* @return status code of (422 - Unprocessable Entity) if (*)Route HTTP request failed
-*/
-app.use((err, req, res, next) => {
-    res.status(422).send({
-        error: err.message,
-        keyValue: err.keyValue,
-    });
-});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.info(`Server has started on ${PORT}`));
