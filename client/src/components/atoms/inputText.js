@@ -11,6 +11,10 @@ const StyledInput = styled.input`
     font-size: 16px;
     color: ${Color.white};
     background: ${Color.redVeryTranslucid};
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
 `;
 
 const InputText = ({ className, isRequired, isDisabled }) => {

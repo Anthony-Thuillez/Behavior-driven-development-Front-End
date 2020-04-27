@@ -1,0 +1,25 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Default, Error } from './formField.stories';
+import FormField from '../components/molecules/formField';
+
+<Meta title="Molecule|FormField" component={FormField} />
+
+# FormField
+
+This section describes the main FormField component.
+
+<div style={{ backgroundColor: '#140C0B', padding: '20px 20px 40px' }}>
+    <Default />
+    <Error />
+</div>
+
+Now let's see in details !
+
+```javascript
+<FormField />
+<FormField error={true}>{children}</FormField>
+```
+
+# Props
+
+<Props of={FormField} />

@@ -5,7 +5,6 @@ import Label from '../atoms/label';
 import Error from '../atoms/error';
 import PropTypes from 'prop-types';
 
-
 const StyledField = styled.div`
     position: relative;
     & + .formField {

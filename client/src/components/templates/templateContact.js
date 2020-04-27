@@ -17,7 +17,7 @@ const Template = styled.div`
 `;
 
 const StyledForm = styled(Form)`
-    margin-top: 72px;
+    margin-top: 65px;
     max-width: 391px;
 `;
 
@@ -34,16 +34,16 @@ const TemplateContact = (props) => {
                     <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
 
                     <StyledForm>
-                        <FormField error={true} >
-                            <Label text="Si vous étiez une ville, vous seriez laquelle ?" isRequired />
-                            <InputText />
-                        </FormField>
-                        <FormField error={true} >
-                            <Label text="Si vous étiez une ville, vous seriez laquelle ?" isRequired />
+                        <FormField>
+                            <Label text={props.input1} isRequired />
                             <InputText />
                         </FormField>
                         <FormField>
-                            <Label text="Si vous étiez une ville, vous seriez laquelle ?" isRequired />
+                            <Label text={props.input2} isRequired />
+                            <InputText />
+                        </FormField>
+                        <FormField>
+                            <Label text={props.input3} isRequired />
                             <InputText />
                         </FormField>
                     </StyledForm>
