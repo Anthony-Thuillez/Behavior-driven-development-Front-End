@@ -6,7 +6,6 @@ import BlockText from '../molecules/blockText';
 import Text from '../atoms/text'
 import { Color } from '../../styles/variables';
 import styled, { keyframes } from 'styled-components';
-import ImgFabriqueDeLaMonnaie from '../../assets/fabriqueDeLaMonnaie.png';
 import ImgCible from '../../assets/cibleProject.svg';
 import Digits from '../atoms/digits';
 import Datas from '../molecules/datas';
@@ -83,14 +82,14 @@ const TemplateProjects = (props) => {
                             <Text text={props.objectif} />
                         </BlockTextMargin>
                         <div className="imageContent" >
-                            <img className="img projet" src={ImgFabriqueDeLaMonnaie} alt="monument" />
+                            <img className="img projet" src={props.img} alt="monument" />
                             <img className="img cible" src={ImgCible} alt="cible" />
                         </div>
                     </div>
                     <DatasMargin>
-                        <Digits digit="2,400,000,000" name="d'euros" />
-                        <Digits digit="11" name="jours" />
-                        <Digits digit="67" name="otages" />
+                        <Digits digit={props.digitData1} name={props.nameData1} />
+                        <Digits digit={props.digitData2} name={props.nameData2} />
+                        <Digits digit={props.digitData3} name={props.nameData3} />
                     </DatasMargin>
                 </Wrapper>
             </Template>

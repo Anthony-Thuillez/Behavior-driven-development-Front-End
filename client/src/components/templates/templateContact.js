@@ -1,5 +1,6 @@
 import React from 'react';
 import Wrapper from '../atoms/wrapper';
+import Background from '../atoms/background';
 import Title from '../atoms/title';
 import { Color } from '../../styles/variables';
 import styled from 'styled-components';
@@ -17,6 +18,10 @@ const TemplateContact = (props) => {
         <>
             <Template>
                 <Wrapper>
+                    <Background
+                        img={props.img}
+                        imgWidth="1160px"
+                    />
                     <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
                 </Wrapper>
             </Template>
