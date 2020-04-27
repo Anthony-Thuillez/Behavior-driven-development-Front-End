@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import TemplateContact from '../components/templates/templateContact';
+import axios from 'axios';
 
 export default function Backoffice() {
     const idRef = useRef();
@@ -13,11 +14,26 @@ export default function Backoffice() {
     const details2TextRef = useRef();
     const details3ValRef = useRef();
     const details3TextRef = useRef();
+    const imageRef = useRef();
 
     const [robberies, setRobberies] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
     const [fields, setFields] = useState({});
     const [currId, setCurrId] = useState(null);
+
+    const uploadImage = (e, method) => {
+        if (fields.title === undefined) {
+            alert('Choisir un titre svp');
+            document.getElementById("file").value = "";
+        } else {
+            let blob = e.target.files[0].slice(0, e.target.files[0].size, 'image/png');
+            let newFile = new File([blob], `${fields.title}.png`, { type: 'image/png' });
+            const data = new FormData();
+            data.append('myImage', newFile.name);
+            data.append('myImage', newFile);
+            setFields({ ...fields, image: data });
+        }
+    };
 
     useEffect(() => {
         fetch('http://localhost:3001/api/robberies', {
@@ -56,6 +72,11 @@ export default function Backoffice() {
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
+
+        await axios.post("http://localhost:3001/api/upload", fields.image, {
+        }).then(res => {
+            console.log(res.statusText);
+        });
     };
 
     const handleDelete = async (id) => {
@@ -81,6 +102,7 @@ export default function Backoffice() {
                 details2Text: details2TextRef.current.value,
                 details3Val: details3ValRef.current.value,
                 details3Text: details3TextRef.current.value,
+                image: imageRef.current.value
             });
         }
     }, [titleRef, isEditing]);
@@ -98,9 +120,9 @@ export default function Backoffice() {
 
     return (
         <div>
-            <TemplateContact
+            {/* <TemplateContact
                 title="BACK-OFFICE"
-            />
+            /> */}
             <h3>Liste des casses</h3>
 
             <div style={{ background: 'green', width: '100%', height: 'auto' }}>
@@ -115,7 +137,11 @@ export default function Backoffice() {
                 {robberies && robberies.map((robbery, index) => (
                     <div ref={idRef} key={index} style={{ display: 'flex', justifyContent: 'space-around' }}>
                         <div className="image-container">
-                            <img alt=""></img>
+                            {!isEditing ?
+                                (<img alt="upload-image" width="20px" src={"http://localhost:3001/public/uploads/" + robbery.title + ".png"} />)
+                                :
+                                (<input name="myImage" ref={imageRef} type="file" onChange={(e) => uploadImage(e)} />)
+                            }
                         </div>
                         {!isEditing ?
                             (<div className="title-container">{robbery.title}</div>)
@@ -184,7 +210,7 @@ export default function Backoffice() {
                 ))}
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <div className="image-container">
-                        <img alt=""></img>
+                        <input id="file" type="file" onChange={(e) => uploadImage(e, "multer")} />
                     </div>
                     <textarea onChange={(e) => setFields({ ...fields, title: e.target.value })} />
                     <div style={{ maxWidth: '30%' }} className="description-container">
