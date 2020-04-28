@@ -37,7 +37,7 @@ const sizes = {
 const StyledTitle = styled.h1`
   position: relative;
   font-family: 'Anton';
-  font-size:  ${props => sizes[props.size].fontSize};
+  font-size: ${props => sizes[props.size].fontSize};
   line-height: ${props => sizes[props.size].lineHeight};
   color: ${props => props.color};
   text-transform: uppercase;
@@ -46,6 +46,10 @@ const StyledTitle = styled.h1`
   animation-duration: 1s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  @media screen and (max-height: 899px) {
+    font-size: calc(${props => sizes[props.size].fontSize} - 40px);
+    line-height: calc(${props => sizes[props.size].lineHeight} - 40px);
+  }
   .textMirror {
     z-index: -1;
     position: absolute;
@@ -96,7 +100,8 @@ Title.defaultProps = {
 Title.propTypes = {
   className: PropTypes.string,
   text: PropTypes.string.isRequired,
-  size: PropTypes.string,
+    /** Optionnal sizes */
+  size: PropTypes.oneOf(['medium', 'large']),
   color: PropTypes.string,
   textMirror: PropTypes.string
 };

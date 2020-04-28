@@ -22,7 +22,6 @@ const animateBlockTextDecoration = keyframes`
 const StyledBlockText = styled.div`
     position: relative;
     padding-left: 30px;
-    max-width: ${props => props.width};
     &:before {
         position: absolute;
         content: '';
@@ -41,9 +40,9 @@ const StyledBlockText = styled.div`
     }
 `;
 
-const BlockText = ({ className, children, width }) => {
+const BlockText = ({ className, children }) => {
     return(
-        <StyledBlockText className={className} width={width} >
+        <StyledBlockText className={className} >
             {children}
         </StyledBlockText>
     )
@@ -56,12 +55,10 @@ export default BlockText;
 BlockText.displayName = 'Block of text';
 BlockText.defaultProps = {
     className: null,
-    children: <Text />,
-    width: "400px"
+    children: <Text />
 };
 
 BlockText.propTypes = {
     className: PropTypes.string,
-    children: PropTypes.node.isRequired,
-    width: PropTypes.string
+    children: PropTypes.node.isRequired
 };

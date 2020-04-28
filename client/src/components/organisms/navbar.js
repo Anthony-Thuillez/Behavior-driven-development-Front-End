@@ -16,7 +16,7 @@ const animateNavbar = keyframes`
 const StyledNavbar = styled.nav`
     z-index: 10;
     position: absolute;
-    padding: 40px;
+    padding: 40px 40px 40px 0;
     top: 0;
     right: 0;
     height: 100%;

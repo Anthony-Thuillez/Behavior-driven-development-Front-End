@@ -1,53 +1,44 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Color } from '../../styles/variables';
+import PropTypes from 'prop-types';
 
-const types = {
-    number: {
-        fontFamily: 'Anton',
-        fontSize: '53px',
-        fontWeight: 'normal',
-        lineHeight: '64px',
-        color: '#fff'
-    },
-    text: {
-        fontFamily: 'Avenir',
-        fontSize: '23px',
-        fontWeight: 'normal',
-        lineHeight: '28px',
-        color: '#B72726'
+const StyledDigits = styled.div`
+    text-align: center;
+    .digit {
+        font-family: 'Anton';
+        font-size: 53px;
+        line-height: 71px;
+        color: ${Color.whiteTranslucid};
     }
-}
-
-
-
-const StyledDigits = styled.span`
-    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-    font-family: ${props => types[props.type].fontFamily};
-    font-style: normal;
-    font-size:  ${props => types[props.type].fontSize};
-    font-weight:  ${props => types[props.type].fontWeight};
-    line-height: ${props => types[props.type].lineHeight};
-    padding-top: 8px;
-    color: ${props => types[props.type].color};
+    .name {
+        font-family: 'Avenir';
+        font-size: 23px;
+        color: ${Color.red};
+    }
 `;
 
-const Digits = ({type, children, testid}) => {
+const Digits = ({ className, digit, name }) => {
     return(
-        <StyledDigits type={type} data-testid={testid}>{children}</StyledDigits>
+        <StyledDigits className={className} >
+            <p className="digit">{digit}</p>
+            <p className="name">{name}</p>
+        </StyledDigits>
     )
 }
+
+export default Digits;
 
 /* Will show the right 'tag' within documentation */
 Digits.displayName = 'Digits';
 Digits.defaultProps = {
-    type: 'number'
+    className: null,
+    digit: 'test digit',
+    name: 'test name'
 };
 
 Digits.propTypes = {
-/** Optionnal types */
- type: PropTypes.oneOf(['number', 'text']),
- children: PropTypes.element.isRequired
+    className: PropTypes.string,
+    digit: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
 };
-
-export default Digits;

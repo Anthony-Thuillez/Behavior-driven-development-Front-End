@@ -1,0 +1,27 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { Default, Required, Disabled } from './inputText.stories';
+import InputText from '../components/atoms/inputText';
+
+<Meta title="Atoms|InputText" component={InputText} />
+
+# Input Text
+
+Example :
+
+<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '200px',backgroundColor: '#140C0B', padding: '20px' }}>
+    <Default />
+    <Required />
+    <Disabled />
+</div>
+
+How to use :
+
+```javascript
+<Input />
+<Input isRequired />
+<Input isDisabled />
+```
+
+# Props
+
+<Props of={InputText} />

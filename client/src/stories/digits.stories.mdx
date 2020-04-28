@@ -1,24 +1,23 @@
 import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
-import { Number, Text} from './digits.stories';
+import { Default, Custom } from './digits.stories';
 import Digits from '../components/atoms/digits';
 
 <Meta title="Atoms|Digits" component={Digits} />
 
 # Digits
 
-This section describe all variant of Digits component. You can play with 2 types: `number` and `text`.
+This section describe all variant of Digits component. You can play with 2 types: `digit` and `name`.
 
-<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexWrap: 'wrap', width: 'auto', background: 'black', padding: '20px 20px'  }}>
-    <Number />
-    <Text />
-
+<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', background: 'black', padding: '20px 20px'  }}>
+    <Default />
+    <Custom />
 </div>
 
 Now let's see in details !
 
 ```javascript
-<Digits type="number" testid="digits-number"><span>140,000,000</span></Digits>
-<Digits type="text" testid="digits-text"><span>d'euros déversés sur Madrid</span></Digits>
+<Digits />
+<Digits digit="2,400,000,000" name="d'euros" />
 ```
 
 # Props
