@@ -17,9 +17,9 @@ const StyledInput = styled.input`
     }
 `;
 
-const InputText = ({ className, isRequired, isDisabled }) => {
+const InputText = ({ className, isRequired, isDisabled, testid }) => {
     return (
-        <StyledInput className={className} type="text" required={isRequired && 'required' } disabled={isDisabled && 'disabled' } />
+        <StyledInput data-testid={testid} className={className} type="text" required={isRequired && 'required'} disabled={isDisabled && 'disabled'} />
     )
 }
 

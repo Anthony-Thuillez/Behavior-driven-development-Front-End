@@ -18,9 +18,9 @@ const StyledDigits = styled.div`
     }
 `;
 
-const Digits = ({ className, digit, name }) => {
-    return(
-        <StyledDigits className={className} >
+const Digits = ({ className, digit, name, testid }) => {
+    return (
+        <StyledDigits data-testid={testid} className={className} >
             <p className="digit">{digit}</p>
             <p className="name">{name}</p>
         </StyledDigits>

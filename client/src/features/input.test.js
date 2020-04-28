@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import { Small, Large, Disabled } from '../stories/input.stories';
+import { Default, Required, Disabled } from '../stories/inputText.stories';
 
 describe('Renders Input component', () => {
     let spy;
@@ -13,36 +13,28 @@ describe('Renders Input component', () => {
         spy = jest.fn();
     });
 
-    test('with a small size', () => {
-        const { container, getByTestId } = render(<Small />);
+    test('with a Default size', () => {
+        const { container, getByTestId } = render(<Default />);
         expect(container).toBeTruthy();
-        const input = getByTestId('small-input')
-        expect(input).toHaveStyleRule('font-size', '15px');
-        expect(spy).toHaveBeenCalledTimes(0);
-    });
-
-    test('with a small color state', () => {
-        const { container, getByTestId } = render(<Small />);
-        expect(container).toBeTruthy();
-        const input = getByTestId('small-input')
-        expect(input).toHaveStyleRule('color', '#140C0B');
-        expect(spy).toHaveBeenCalledTimes(0);
+        const input = getByTestId('default-input')
+        expect(input).toHaveStyleRule('font-size', '16px');
+        expect(input).toHaveStyleRule('color', '#FFFFFF');
     });
 
     test('with a large size', () => {
-        const { container, getByTestId } = render(<Large />);
+        const { container, getByTestId } = render(<Required />);
         expect(container).toBeTruthy();
-        const input = getByTestId('large-input')
-        expect(input).toHaveStyleRule('font-size', '20px');
-        expect(spy).toHaveBeenCalledTimes(0);
+        const input = getByTestId('required-input')
+        expect(input).toHaveStyleRule('font-size', '16px');
+        expect(input).toHaveStyleRule('color', '#FFFFFF');
     });
 
-    test('with a small color state', () => {
-        const { container, getByTestId } = render(<Small />);
+    test('with a large size', () => {
+        const { container, getByTestId } = render(<Disabled />);
         expect(container).toBeTruthy();
-        const input = getByTestId('small-input')
-        expect(input).toHaveStyleRule('color', '#140C0B');
-        expect(spy).toHaveBeenCalledTimes(0);
+        const input = getByTestId('disabled-input')
+        expect(input).toHaveStyleRule('font-size', '16px');
+        expect(input).toHaveStyleRule('color', '#FFFFFF');
     });
 
     test('with a disabled input', () => {
@@ -51,20 +43,23 @@ describe('Renders Input component', () => {
         const input = getByTestId('disabled-input')
         fireEvent.change(input, { target: { value: '' } })
         expect(input.value).toBe('')
+        expect(spy).toHaveBeenCalledTimes(0);
     });
 
     test('with large input', () => {
-        const { getByTestId } = render(<Large onChange={spy} />);
-        const input = getByTestId('large-input')
+        const { getByTestId } = render(<Default onChange={spy} />);
+        const input = getByTestId('default-input')
         fireEvent.change(input, { target: { value: 'test' } })
         expect(input.value).toBe('test')
+        expect(spy).toHaveBeenCalledTimes(0);
     })
 
     test('with large input', () => {
-        const { getByTestId } = render(<Small onChange={spy} />);
-        const input = getByTestId('small-input')
+        const { getByTestId } = render(<Required onChange={spy} />);
+        const input = getByTestId('required-input')
         fireEvent.change(input, { target: { value: 'test' } })
         expect(input.value).toBe('test')
+        expect(spy).toHaveBeenCalledTimes(0);
     })
 
 });

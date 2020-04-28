@@ -4,22 +4,18 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import { Number, Text } from '../stories/pageNumber.stories';
+import { Default, Custom } from '../stories/pageNumber.stories';
 
 
 describe('Renders pageNumber component', () => {
 
-    test('with a small size', () => {
-        const { container, getByTestId } = render(<Number />);
+    test('with a Default state', () => {
+        const { container } = render(<Default />);
         expect(container).toBeTruthy();
-        const digits = getByTestId('page-number-int')
-        expect(digits).toHaveAttribute('type', 'number');
     });
 
-    test('with a small color state', () => {
-        const { container, getByTestId } = render(<Text />);
+    test('with a Custom state', () => {
+        const { container } = render(<Custom />);
         expect(container).toBeTruthy();
-        const digits = getByTestId('page-number-text')
-        expect(digits).toHaveAttribute('type', 'text');
     });
 });

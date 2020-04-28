@@ -1,4 +1,4 @@
 import React from 'react';
 import Error from '../components/atoms/error';
 
-export const Default = () => <Error />;
+export const Default = () => <Error testid="error-test" />;

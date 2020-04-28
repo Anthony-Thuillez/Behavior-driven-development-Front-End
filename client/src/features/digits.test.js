@@ -4,23 +4,19 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import { Number, Text } from '../stories/digits.stories';
+import { Default, Custom } from '../stories/digits.stories';
 
 
 describe('Renders Digits component', () => {
 
-    test('with a small size', () => {
-        const { container, getByTestId } = render(<Number />);
+    test('with a Digits default state', () => {
+        const { container, getByTestId } = render(<Default />);
         expect(container).toBeTruthy();
-        const digits = getByTestId('digits-number')
-        expect(digits).toHaveAttribute('type', 'number');
     });
 
-    test('with a small color state', () => {
-        const { container, getByTestId } = render(<Text />);
+    test('with a Digits custom state', () => {
+        const { container, getByTestId } = render(<Custom />);
         expect(container).toBeTruthy();
-        const digits = getByTestId('digits-text')
-        expect(digits).toHaveAttribute('type', 'text');
     });
 
 });
