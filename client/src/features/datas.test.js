@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { render } from '@testing-library/react';
 // this adds jest-dom's custom assertions
 import '@testing-library/jest-dom/extend-expect';
@@ -11,6 +11,6 @@ describe('Renders Default component', () => {
     test('with a Default datas state', () => {
         const { container, getByTestId } = render(<Default />);
         expect(container).toBeTruthy();
-        const data = getByTestId('datas-test')
+        console.log(container)
     });
 });
