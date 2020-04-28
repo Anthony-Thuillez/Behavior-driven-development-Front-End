@@ -9,8 +9,7 @@ import { Default } from '../stories/datas.stories';
 describe('Renders Default component', () => {
 
     test('with a Default datas state', () => {
-        const { container, getByTestId } = render(<Default />);
+        const { container } = render(<Default />);
         expect(container).toBeTruthy();
-        console.log(container)
     });
 });
