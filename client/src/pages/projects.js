@@ -17,7 +17,7 @@ const Projects = () => {
       digitData3={'67'}
       nameData3={'otages'}
     />
-  )
-}
+  );
+};
 
 export default Projects;

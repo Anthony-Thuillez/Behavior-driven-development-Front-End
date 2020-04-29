@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Wrapper from '../atoms/wrapper';
 import PageNumber from '../atoms/pageNumber';
 import Title from '../atoms/title';
 import BlockText from '../molecules/blockText';
-import Text from '../atoms/text'
+import Text from '../atoms/text';
 import { Color } from '../../styles/variables';
 import styled, { keyframes } from 'styled-components';
 import ImgCible from '../../assets/cibleProject.svg';
@@ -69,31 +69,74 @@ const DatasMargin = styled(Datas)`
 `;
 
 const TemplateProjects = (props) => {
+    const [robberies, setRobberies] = useState([]);
+    let [page, setPage] = useState(1);
+
+    useEffect(() => {
+        console.log('effect');
+
+        fetch('http://localhost:3001/api/robberies', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'ContentType': 'application/json'
+            }
+        })
+            .then(response => {
+                if (response.ok)
+                    return response.json();
+            })
+            .then(response => {
+                setRobberies(response);
+            });
+    }, []);
+
+    const handleScroll = (e) => {
+        if (e.deltaY < 0) {
+            if (page <= 1) {
+                setPage(1);
+            } else {
+                let newPage = page--;
+                setPage(newPage);
+            }
+        } else if (e.deltaY > 0) {
+            if (page >= robberies.length) {
+                setPage(robberies.length);
+            } else {
+                let newPage = page++;
+                setPage(newPage);
+            }
+        }
+    };
 
     return (
-        <Template>
-            <Wrapper>
-                <PageNumber currentPage={1} totalPage={2} />
-                <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
-                <div className="projectContent" >
-                    <StyledBlockText>
-                        <Text text={props.text1} />
-                        <Text text={props.team} />
-                        <Text text={props.objectif} />
-                    </StyledBlockText>
-                    <div className="imageContent" >
-                        <img className="img projet" src={props.img} alt="monument" />
-                        <img className="img cible" src={ImgCible} alt="cible" />
+        <Template onWheel={(e) => handleScroll(e)}>
+            {robberies.length > 0 ? (
+                <Wrapper>
+                    <PageNumber currentPage={page} totalPage={robberies.length} />
+                    <div>
+                        <Title text={robberies[page - 1].title} size="medium" color={Color.whiteTranslucid} />
+                        <div className="projectContent" >
+                            <StyledBlockText>
+                                <Text text={robberies[page - 1].context} />
+                                <Text text={robberies[page - 1].team} />
+                                <Text text={robberies[page - 1].goal} />
+                            </StyledBlockText>
+                            <div className="imageContent" >
+                                <img className="img projet" src={"http://localhost:3001/public/uploads/" + robberies[page - 1].title + ".png"} alt="monument" />
+                                <img className="img cible" src={ImgCible} alt="cible" />
+                            </div>
+                        </div>
+                        <DatasMargin>
+                            <Digits digit={robberies[page - 1].details1Val} name={robberies[page - 1].details1Text} />
+                            <Digits digit={robberies[page - 1].details2Text} name={robberies[page - 1].details2Text} />
+                            <Digits digit={robberies[page - 1].details3Text} name={robberies[page - 1].details3Text} />
+                        </DatasMargin>
                     </div>
-                </div>
-                <DatasMargin>
-                    <Digits digit={props.digitData1} name={props.nameData1} />
-                    <Digits digit={props.digitData2} name={props.nameData2} />
-                    <Digits digit={props.digitData3} name={props.nameData3} />
-                </DatasMargin>
-            </Wrapper>
+                </Wrapper>
+            ) : null}
         </Template>
-      )
-}
+    );
+};
 
 export default TemplateProjects;
