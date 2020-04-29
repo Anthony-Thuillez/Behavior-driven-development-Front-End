@@ -3,13 +3,27 @@ import TemplateContact from '../components/templates/templateContact';
 import ImgTel from '../assets/tel.png';
 
 const Contact = () => {
+
+  const fields = {
+    field1: {
+      text: 'Si vous étiez une ville, vous seriez laquelle ?',
+      required: true
+    },
+    field2: {
+      text: 'Quel monument rêveriez-vous de braquer ?',
+      required: true
+    },
+    field3: {
+      text: 'Quel est votre domaine de prédilection en matière de braquage ?',
+      required: true
+    }
+  }
+
   return (
     <TemplateContact
       img={ImgTel}
       title={'À votre \n écoute'}
-      input1={'Si vous étiez une ville, vous seriez laquelle ?'}
-      input2={'Quel monument rêveriez-vous de braquer ?'}
-      input3={'Quel est votre domaine de prédilection en matière de braquage ?'}
+      fields={fields}
       submitBtn={'Envoyer'}
     />
   )
