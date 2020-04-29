@@ -4,27 +4,30 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import { LabelRed, LabelWhite } from '../stories/label.stories';
+import { Default, Custom, Required } from '../stories/label.stories';
 
 
-describe('Renders Button component', () => {
-    let spy;
+describe('Renders Label component', () => {
 
-    beforeEach(() => {
-        spy = jest.fn();
+    test('with a Default color state', () => {
+        const { container, getByTestId } = render(<Default />);
+        expect(container).toBeTruthy();
+        const label = getByTestId('default-label')
+        expect(label).toHaveStyleRule('color', 'rgba(255,255,255,0.85)');
     });
 
-    test('with a LabelRed color state', () => {
-        const { container, getByTestId } = render(<LabelRed />);
+    test('with a Custom color state', () => {
+        const { container, getByTestId } = render(<Custom />);
         expect(container).toBeTruthy();
-        const label = getByTestId('small-label')
-        expect(label).toHaveStyleRule('color', '#B72726');
+        const label = getByTestId('custum-label')
+        expect(label).toHaveClass("customLabel")
+        expect(label).toHaveStyleRule('color', 'rgba(255,255,255,0.85)');
     });
 
-    test('with a LabelWhite color state', () => {
-        const { container, getByTestId } = render(<LabelWhite />);
+    test('with a Custom color state', () => {
+        const { container, getByTestId } = render(<Required />);
         expect(container).toBeTruthy();
-        const label = getByTestId('medium-label')
-        expect(label).toHaveStyleRule('color', '#FFFFFF');
+        const label = getByTestId('required-label')
+        expect(label).toHaveStyleRule('color', 'rgba(255,255,255,0.85)');
     });
 });

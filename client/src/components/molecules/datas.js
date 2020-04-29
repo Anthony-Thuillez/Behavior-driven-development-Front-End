@@ -18,9 +18,9 @@ const StyledDatas = styled.div`
     }
 `;
 
-const Datas = ({ className, children }) => {
-    return(
-        <StyledDatas className={className} >
+const Datas = ({ className, children, testid }) => {
+    return (
+        <StyledDatas data-testid={testid} className={className} >
             {children}
         </StyledDatas>
     )

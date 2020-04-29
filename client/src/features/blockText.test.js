@@ -4,19 +4,20 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import { Default, Custom } from '../stories/digits.stories';
+import { Default, Custom } from '../stories/blockText.stories';
 
-
-describe('Renders Digits component', () => {
-
-    test('with a Digits default state', () => {
+describe('Renders Text component', () => {
+    test('with a Default block state', () => {
         const { container, getByTestId } = render(<Default />);
         expect(container).toBeTruthy();
+        const text = getByTestId('block-text')
+        expect(text.innerHTML).toMatch('Test text')
     });
 
-    test('with a Digits custom state', () => {
+    test('with a BlockText custom state', () => {
         const { container, getByTestId } = render(<Custom />);
         expect(container).toBeTruthy();
+        const text = getByTestId('block-text-custom')
+        expect(text).toHaveStyle("width:", "500px")
     });
-
 });
