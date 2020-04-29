@@ -31,14 +31,14 @@ const TemplateContact = (props) => {
 
     const [field, setField] = useState({});
 
-    data.map((element, index) => {
-        this.state.data.push({ indexNumber: index, show: false}] })
-    });
+    // data.map((element, index) => {
+    //     this.state.data.push({ indexNumber: index, show: false}] })
+    // });
 
-    props && Object.keys(props.fields).map((items, i) => {
-        let item = props.fields[items];
-        setState
-    })
+    // props && Object.keys(props.fields).map((items, i) => {
+    //     console.log(items)
+    //     setState()
+    // })
 
 
     const [error, setError] = useState({});
