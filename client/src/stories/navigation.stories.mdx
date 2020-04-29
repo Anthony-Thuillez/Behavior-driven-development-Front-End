@@ -1,0 +1,26 @@
+import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
+import { BrowserRouter as Router } from "react-router-dom";
+import { Default, Custom } from './blockText.stories';
+import Navigation from '../components/molecules/navigation';
+
+<Meta title="Molecule|Navigation" component={Navigation} />
+
+# Navigation
+
+This section describes the main BlockText component.
+
+<div style={{ backgroundColor: '#140C0B', padding: '20px' }}>
+    <Router>
+        <Navigation />
+    </Router>
+</div>
+
+Now let's see in details !
+
+```javascript
+    <Navigation />
+```
+
+# Props
+
+<Props of={Navigation} />
