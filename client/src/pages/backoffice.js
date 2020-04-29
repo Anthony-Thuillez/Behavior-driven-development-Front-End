@@ -106,16 +106,22 @@ export default function Backoffice() {
         }
     }, [titleRef, isEditing]);
 
-    const handleUpdate = async () => {
-        await fetch("http://localhost:3001/api/robbery/" + currId, {
-            method: 'PUT',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(fields)
-        })
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-    };
+    // const handleUpdate = async () => {
+    //     await fetch("http://localhost:3001/api/robbery/" + currId, {
+    //         method: 'PUT',
+    //         headers: { "Content-Type": "application/json" },
+    //         body: JSON.stringify(fields)
+    //     })
+    //         .then(response => response.text())
+    //         .then(result => console.log(result))
+    //         .catch(error => console.log('error', error));
+
+    //     await axios.post("http://localhost:3001/api/upload", fields.image, {
+    //     }).then(res => {
+    //         console.log(res.statusText);
+    //     });
+    //     setIsEditing(!isEditing);
+    // };
 
     return (
         <div>
@@ -196,11 +202,11 @@ export default function Backoffice() {
                         </div>
                         <div>
                             {!isEditing ? (<>
-                                <button onClick={() => handleEdit(robbery._id)}>edit</button>
+                                {/* <button onClick={() => handleEdit(robbery._id)}>edit</button> */}
                                 <button onClick={() => handleDelete(robbery._id)}>delete</button>
                             </>) : (<>
-                                <button onClick={() => setIsEditing(!isEditing)}>close</button>
-                                <button onClick={() => handleUpdate()}>validate</button>
+                                {/* <button onClick={() => setIsEditing(!isEditing)}>close</button> */}
+                                {/* <button onClick={() => handleUpdate()}>validate</button> */}
                             </>
                                 )}
 
