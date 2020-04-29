@@ -81,24 +81,22 @@ export default Button;
 Button.displayName = 'Button';
 Button.defaultProps = {
     className: null,
+    text: 'Test button',
     type: 'submit',
     size: 'medium',
-    color: 'white'
+    color: 'white',
+    disabled: false,
+    onClick: null
 };
 
-// Button.propTypes = {
-//     /** Optionnal types */
-//     type: PropTypes.oneOf(['submit', 'default', 'disabled']),
-//     /** Optionnal colors */
-//     color: PropTypes.oneOf(['darkred', 'red']),
-//     /** Children as ONE element */
-//     // children: PropTypes.element.isRequired,
-//     /** Callback when clicked */
-//     // onClick: PropTypes.func.isRequired,
-//     /** Callback when clicked */
-//     //  onSumbit: PropTypes.func.isRequired,
-//     /** Optionnal testid */
-//     testid: PropTypes.string,
-//     /** Disabled state */
-//     disabled: PropTypes.bool
-// };
+Button.propTypes = {
+    className: PropTypes.string,
+    text: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    /** Optionnal sizes */
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    /** Optionnal colors */
+    color: PropTypes.oneOf(['white', 'red']),
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func
+};

@@ -73,8 +73,6 @@ const TemplateProjects = (props) => {
     let [page, setPage] = useState(1);
 
     useEffect(() => {
-        console.log('effect');
-
         fetch('http://localhost:3001/api/robberies', {
             method: 'GET',
             headers: {
@@ -82,13 +80,13 @@ const TemplateProjects = (props) => {
                 'ContentType': 'application/json'
             }
         })
-            .then(response => {
-                if (response.ok)
-                    return response.json();
-            })
-            .then(response => {
-                setRobberies(response);
-            });
+        .then(response => {
+            if (response.ok)
+                return response.json();
+        })
+        .then(response => {
+            setRobberies(response);
+        });
     }, []);
 
     const handleScroll = (e) => {
@@ -134,10 +132,9 @@ const TemplateProjects = (props) => {
                         </DatasMargin>
                     </>
                 ) : (
-                        <Title text="Pas de projet en cours..." size="medium" color={Color.whiteTranslucid} />
-                    )}
+                    <Title text="Pas de projet en cours..." size="medium" color={Color.whiteTranslucid} />
+                )}
             </Wrapper>
-
         </Template>
     );
 };
