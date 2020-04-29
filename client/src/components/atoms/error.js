@@ -11,9 +11,9 @@ const StyledError = styled.span`
     color: red;
 `;
 
-const Error = ({ className }) => {
-    return(
-        <StyledError className={className} >
+const Error = ({ className, testid }) => {
+    return (
+        <StyledError data-testid={testid} className={className} >
             Ce champ n'est pas valide
         </StyledError>
     )

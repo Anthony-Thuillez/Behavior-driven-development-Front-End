@@ -15,10 +15,10 @@ const StyledFollowMe = styled.ul`
     }
 `;
 
-const FollowMe = (props) => {
+const FollowMe = ({ testid }) => {
 
     return (
-        <StyledFollowMe>
+        <StyledFollowMe data-testid={testid}>
             <li>
                 <FollowLink className="ico-yt" href="https://www.youtube.com/channel/UCI9tBPaYZ8kJEU0PaQLWfEw" imgSrc={Yt} imgAlt="Logo Youtube" />
             </li>

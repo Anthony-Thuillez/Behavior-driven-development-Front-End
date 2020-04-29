@@ -15,9 +15,9 @@ const StyledLabel = styled.label`
     }
 `;
 
-const Label = ({ className, text, isRequired }) => {
-    return(
-        <StyledLabel className={className} >
+const Label = ({ className, text, isRequired, testid }) => {
+    return (
+        <StyledLabel data-testid={testid} className={className} >
             {text}
             {
                 isRequired && (

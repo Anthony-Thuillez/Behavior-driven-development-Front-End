@@ -64,15 +64,15 @@ const StyledTitle = styled.h1`
   }
 `;
 
-const Title = ({ className, text, size, color, textMirror}) => {
+const Title = ({ className, text, size, color, textMirror, testid }) => {
 
-  return(
-    <StyledTitle className={className} size={size} color={color} >
+  return (
+    <StyledTitle data-testid={testid} className={className} size={size} color={color} >
       {text.split('\n').map((item, key) => {
         return (
           <Fragment key={key}>
             {item}
-            <br/>
+            <br />
           </Fragment>
         )
       })}
@@ -90,11 +90,11 @@ export default Title;
 /* Will show the right 'tag' within documentation */
 Title.displayName = 'Title';
 Title.defaultProps = {
-    className: null,
-    text: 'Test title',
-    size: 'medium',
-    color: '#fff',
-    textMirror: ''
+  className: null,
+  text: 'Test title',
+  size: 'medium',
+  color: '#fff',
+  textMirror: ''
 };
 
 Title.propTypes = {

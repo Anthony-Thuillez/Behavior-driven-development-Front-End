@@ -12,9 +12,9 @@ const StyledField = styled.div`
     }
 `;
 
-const FormField = ({ className, children, error }) => {
-    return(
-        <StyledField className={className ? className + ' formField' : 'formField'} >
+const FormField = ({ className, children, error, testid }) => {
+    return (
+        <StyledField data-testid={testid} className={className ? className + ' formField' : 'formField'} >
             {children}
             {
                 error && (
