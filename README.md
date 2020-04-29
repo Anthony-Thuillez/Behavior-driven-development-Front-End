@@ -25,13 +25,23 @@ $ npm install
 
 --------
 
+## Configure .env
+```shell
+PORT=3001
+BDD_NAME=casadepapelDB
+BDD_USERNAME=usernamedepapel
+BDD_PWD=passworddepapel
+```
+
+--------
+
 ## Launch the project
 ```shell
 $ cd <pathToProjectFolder>/client
 $ yarn start
 
 $ cd <pathToProjectFolder>/server
-$ npm start
+$ npm run start-watch
 ```
 
 ## Launch and look the storybook
