@@ -1,100 +1,103 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { darken } from 'polished';
+import { Color } from '../../styles/variables';
+import PropTypes from 'prop-types';
 
-const types = {
-    submit: {
-        fontSize: '20px',
-        lineHeight: '24px',
-        height: '45px',
-        width: '90px', 
-        alignSelf:'flex-end'
+const sizes = {
+    small: {
+        padding: '10px 12px 6px',
+        fontSize: '14px'
     },
-    default: {
-        fontSize: '20px',
-        lineHeight: '24px',
-        height: '45px',
-        width: '150px',
-        alignSelf:'center'
+    medium: {
+        padding: '15px 16px 11px',
+        fontSize: '16px'
     },
-    disabled: {
-        fontSize: '15px',
-        lineHeight: '24px',
-        height: '45px',
-        width: '150px',
-        alignSelf:'auto'
+    large: {
+        padding: '18px 22px 14px',
+        fontSize: '16px'
     }
 }
+
 const colors = {
-    darkred: {
-        backgroundColor: '#fff',
-        color: '#B72726'
+    white: {
+        backgroundColor: `${Color.white}`,
+        color: `${Color.black}`,
+        backgroundColorHover: `${Color.red}`,
+        colorHover: `${Color.white}`
     },
     red: {
-        backgroundColor: '#B72726',
-        color: '#fff'
+        backgroundColor: `${Color.red}`,
+        color: `${Color.white}`,
+        backgroundColorHover: `${Color.white}`,
+        colorHover: `${Color.red}`
     }
 }
 
 const StyledButton = styled.button`
-    font-family: Avenir;
-    font-weight: 400;
-    font-size: ${props => types[props.type].fontSize};
-    line-height: ${props => types[props.type].lineHeight};
-    background-color: ${props => colors[props.color].backgroundColor};
+    padding: ${props => sizes[props.size].padding};
+    font-family: 'Avenir';
+    font-size: ${props => sizes[props.size].fontSize};
+    font-weight: bold;
+    letter-spacing: 1px;
     color: ${props => colors[props.color].color};
-    width: ${props => types[props.type].width};
-    height: ${props => types[props.type].height};
-    border: none;
-    outline: none;
-    transition: all ease .4s;
+    text-transform: uppercase;
+    background-color: ${props => colors[props.color].backgroundColor};
+    border: 0;
+    user-select: none;
     cursor: pointer;
-    align-self: ${props => types[props.type].alignSelf};
-    :disabled {
-        background-color: #E5E7EB;
-        color: #999999;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    &:disabled {
+        opacity: 0.4;
+        color: black !important;
+        background-color: lightgray !important;
         cursor: not-allowed;
-    };
-    :hover {
-        background-color: ${darken(0.1, '#B72726')};
-    };
-    :hover:disabled {
-        background-color: #E5E7EB;
+    }
+    &:hover {
+        color: ${props => colors[props.color].colorHover};
+        background-color: ${props => colors[props.color].backgroundColorHover};
     }
 `;
 
-const Button = ({ type, color, children, onClick, testid, disabled }) => {
+const Button = ({ className, type, text, color, size, disabled, onClick, testid }) => {
 
     return (
-        <StyledButton type={type} color={color} data-testid={testid} onClick={onClick} disabled={disabled}>{children}</StyledButton>
+        <StyledButton
+            data-testid={testid}
+            className={className}
+            type={type}
+            size={size}
+            color={color}
+            disabled={disabled && 'disabled'}
+            onClick={onClick}
+        >
+            {text}
+        </StyledButton>
     )
 }
+
+
+export default Button;
 
 /* Will show the right 'tag' within documentation */
 Button.displayName = 'Button';
 Button.defaultProps = {
+    className: null,
+    text: 'Test button',
     type: 'submit',
-    color: 'darkred',
-    testid: 'button',
+    size: 'medium',
+    color: 'white',
     disabled: false,
+    onClick: null
 };
 
 Button.propTypes = {
-    /** Optionnal types */
-    type: PropTypes.oneOf(['submit', 'default', 'disabled']),
+    className: PropTypes.string,
+    text: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    /** Optionnal sizes */
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     /** Optionnal colors */
-    color: PropTypes.oneOf(['darkred', 'red']),
-    /** Children as ONE element */
-    // children: PropTypes.element.isRequired,
-    /** Callback when clicked */
-    // onClick: PropTypes.func.isRequired,
-    /** Callback when clicked */
-    //  onSumbit: PropTypes.func.isRequired,
-    /** Optionnal testid */
-    testid: PropTypes.string,
-    /** Disabled state */
-    disabled: PropTypes.bool
+    color: PropTypes.oneOf(['white', 'red']),
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func
 };
-
-export default Button;

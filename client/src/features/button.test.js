@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import { Submit, Default, Disabled } from '../stories/button.stories';
+import { Default, Small, Medium, Large, White, Red, Disabled, Function } from '../stories/button.stories';
 
 describe('Renders Button component', () => {
     let spy;
@@ -13,45 +13,74 @@ describe('Renders Button component', () => {
         spy = jest.fn();
     });
 
-    test('with a submit color state', () => {
-        const { container, getByTestId } = render(<Submit onClick={spy} />);
-        expect(container).toBeTruthy();
-        const button = getByTestId('submit-button')
-        expect(button).toHaveStyleRule('color', '#B72726');
-        button.click();
-        expect(spy).toHaveBeenCalledTimes(1);
-    });
-
-    test('with a submit state', () => {
-        const { container, getByTestId } = render(<Submit onClick={spy} />);
-        expect(container).toBeTruthy();
-        const button = getByTestId('submit-button')
-        button.click();
-        expect(spy).toHaveBeenCalledTimes(1);
-    });
-
     test('with a default state', () => {
         const { container, getByTestId } = render(<Default onClick={spy} />);
         expect(container).toBeTruthy();
         const button = getByTestId('default-button')
-        button.click();
-        expect(spy).toHaveBeenCalledTimes(1);
-    });
-
-    test('with a default color state', () => {
-        const { container, getByTestId } = render(<Default onClick={spy} />);
-        expect(container).toBeTruthy();
-        const button = getByTestId('default-button')
-        expect(button).toHaveStyleRule('color', '#fff');
-        button.click();
-        expect(spy).toHaveBeenCalledTimes(1);
-    });
-
-    test('with a disabled state', () => {
-        const { container, getByTestId } = render(<Disabled onClick={spy} />);
-        expect(container).toBeTruthy();
-        const button = getByTestId('disabled-button')
+        expect(button).toHaveStyleRule('color', '#090C0D');
+        expect(button.innerHTML).toMatch('Default button')
         button.click();
         expect(spy).toHaveBeenCalledTimes(0);
     });
+
+    test('with a Small state', () => {
+        const { container, getByTestId } = render(<Small onClick={spy} />);
+        expect(container).toBeTruthy();
+        const button = getByTestId('small-button')
+        expect(button).toHaveStyleRule('color', '#090C0D');
+        expect(button.innerHTML).toMatch('Small button')
+        button.click();
+        expect(spy).toHaveBeenCalledTimes(0);
+    });
+
+    test('with a Medium state', () => {
+        const { container, getByTestId } = render(<Medium onClick={spy} />);
+        expect(container).toBeTruthy();
+        const button = getByTestId('medium-button')
+        expect(button).toHaveStyleRule('color', '#090C0D');
+        expect(button.innerHTML).toMatch('Medium button')
+        button.click();
+        expect(spy).toHaveBeenCalledTimes(0);
+    });
+
+    test('with a Large state', () => {
+        const { container, getByTestId } = render(<Large onClick={spy} />);
+        expect(container).toBeTruthy();
+        const button = getByTestId('large-button')
+        expect(button).toHaveStyleRule('color', '#090C0D');
+        expect(button.innerHTML).toMatch('Large button')
+        button.click();
+        expect(spy).toHaveBeenCalledTimes(0);
+    });
+
+    test('with a White state', () => {
+        const { container, getByTestId } = render(<White onClick={spy} />);
+        expect(container).toBeTruthy();
+        const button = getByTestId('white-button')
+        expect(button).toHaveStyleRule('color', '#090C0D');
+        expect(button.innerHTML).toMatch('White button')
+        button.click();
+        expect(spy).toHaveBeenCalledTimes(0);
+    });
+
+    test('with a Red state', () => {
+        const { container, getByTestId } = render(<Red onClick={spy} />);
+        expect(container).toBeTruthy();
+        const button = getByTestId('red-button')
+        expect(button).toHaveStyleRule('color', '#FFFFFF');
+        expect(button.innerHTML).toMatch('Red button')
+        button.click();
+        expect(spy).toHaveBeenCalledTimes(0);
+    });
+
+    test('with a Disabled state', () => {
+        const { container, getByTestId } = render(<Disabled onClick={spy} />);
+        expect(container).toBeTruthy();
+        const button = getByTestId('disable-button')
+        expect(button).toHaveStyleRule('color', '#090C0D');
+        expect(button.innerHTML).toMatch('Disabled button')
+        button.click();
+        expect(spy).toHaveBeenCalledTimes(0);
+    });
+
 });

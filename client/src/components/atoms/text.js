@@ -9,14 +9,14 @@ const StyledText = styled.p`
     color: ${Color.whiteTranslucid};
 `;
 
-const Text = ({ className, text }) => {
+const Text = ({ className, text, testid }) => {
     return (
-        <StyledText className={className}>
+        <StyledText data-testid={testid} className={className}>
             {text.split('\n').map((item, key) => {
                 return (
                     <Fragment key={key}>
-                    {item}
-                    <br/>
+                        {item}
+                        <br />
                     </Fragment>
                 )
             })}

@@ -11,11 +11,23 @@ const StyledInput = styled.input`
     font-size: 16px;
     color: ${Color.white};
     background: ${Color.redVeryTranslucid};
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
 `;
 
-const InputText = ({ className, isRequired, isDisabled }) => {
+const InputText = ({ className, isRequired, isDisabled, onChange, value, testid }) => {
     return (
-        <StyledInput className={className} type="text" required={isRequired && 'required' } disabled={isDisabled && 'disabled' } />
+        <StyledInput
+            data-testid={testid}
+            className={className}
+            type="text"
+            required={isRequired && 'required'}
+            disabled={isDisabled && 'disabled'}
+            onChange={onChange}
+            value={value}
+        />
     )
 }
 

@@ -25,9 +25,9 @@ const StyledPageNumber = styled.div`
     }
 `;
 
-const PageNumber = ({ className, currentPage, totalPage }) => {
-    return(
-        <StyledPageNumber className={className} >
+const PageNumber = ({ className, currentPage, totalPage, testid }) => {
+    return (
+        <StyledPageNumber data-testid={testid} className={className} >
             <span>{currentPage} / {totalPage}</span>
             <p>Scroll</p>
         </StyledPageNumber>

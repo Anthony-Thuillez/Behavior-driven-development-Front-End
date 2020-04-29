@@ -9,10 +9,10 @@ const StyledNavigation = styled.ul`
     }
 `;
 
-const Navigation = (props) => {
+const Navigation = ({ testid }) => {
 
     return (
-        <StyledNavigation>
+        <StyledNavigation data-testid={testid}>
             <li>
                 <LinkNavigation to="/" text="La casa" />
             </li>

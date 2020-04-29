@@ -6,11 +6,7 @@ import 'jest-styled-components';
 
 import { DisplayBackground } from '../stories/background.stories';
 
-describe('Renders Button component', () => {
-    let spy;
-    beforeEach(() => {
-        spy = jest.fn();
-    });
+describe('Renders Background component', () => {
 
     test('with a background image', () => {
         const { getByTestId } = render(<DisplayBackground />);

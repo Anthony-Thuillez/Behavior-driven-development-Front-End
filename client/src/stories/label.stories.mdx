@@ -1,23 +1,25 @@
 import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
-import { LabelRed, LabelWhite} from './label.stories';
+import { Default, Custom, Required } from './label.stories';
 import Label from '../components/atoms/label';
 
 <Meta title="Atoms|Label" component={Label} />
 
 # Label
 
-This section describe all variant of Label component. You can play with 2 colours: `red` and `white`.
+Example :
 
-<div style={{ display: 'flex', justifyContent: 'space-between', width: '600px', backgroundColor: '#140C0B', padding: '20px 20px 10px' }}>
-    <LabelRed />
-    <LabelWhite />
+<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: '#140C0B', padding: '20px' }}>
+    <Default />
+    <Custom />
+    <Required />
 </div>
 
-Now let's see in details !
+How to use :
 
 ```javascript
-<Label color="red">Large Label</Label>
-<Label testid="medium-label"><span>White label</span></Label>
+<Label />;
+<Label className="customLabel" text="Custom text label" />;
+<Label isRequired />;
 ```
 
 # Props
