@@ -111,10 +111,10 @@ const TemplateProjects = (props) => {
 
     return (
         <Template onWheel={(e) => handleScroll(e)}>
-            {robberies.length > 0 ? (
-                <Wrapper>
-                    <PageNumber currentPage={page} totalPage={robberies.length} />
-                    <div>
+            <Wrapper>
+                {robberies.length > 0 ? (
+                    <>
+                        <PageNumber currentPage={page} totalPage={robberies.length} />
                         <Title text={robberies[page - 1].title} size="medium" color={Color.whiteTranslucid} />
                         <div className="projectContent" >
                             <StyledBlockText>
@@ -132,9 +132,12 @@ const TemplateProjects = (props) => {
                             <Digits digit={robberies[page - 1].details2Text} name={robberies[page - 1].details2Text} />
                             <Digits digit={robberies[page - 1].details3Text} name={robberies[page - 1].details3Text} />
                         </DatasMargin>
-                    </div>
-                </Wrapper>
-            ) : null}
+                    </>
+                ) : (
+                        <Title text="Pas de projet en cours..." size="medium" color={Color.whiteTranslucid} />
+                    )}
+            </Wrapper>
+
         </Template>
     );
 };
