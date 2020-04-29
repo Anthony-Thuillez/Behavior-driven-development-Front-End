@@ -29,38 +29,41 @@ const StyledForm = styled(Form)`
 
 const TemplateContact = (props) => {
 
-    const [field, setField] = useState({});
-
-    // data.map((element, index) => {
-    //     this.state.data.push({ indexNumber: index, show: false}] })
-    // });
-
-    // props && Object.keys(props.fields).map((items, i) => {
-    //     console.log(items)
-    //     setState()
-    // })
-
-
-    const [error, setError] = useState({});
+    const [field, setField] = useState(props.fields);
 
     const handleValidation = () => {
-        
+        let formIsValid = true;
+
+        for (let i = 0; i < field.length; i++) {
+            if (field[i].value.length <= 0) {
+                field[i].error = true;
+                setField([...field]);
+                formIsValid = false;
+            } else {
+                field[i].error = false;
+                setField([...field]);
+                formIsValid = true;
+            }
+        }
+
+        return (
+            formIsValid
+        )
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleValidation()
-        // if (handleValidation()) {
-        //     alert("Form submitted");
-        // } else {
-        //     alert("Form has errors.")
-        // }
+        console.log(handleValidation())
+        if (handleValidation()) {
+            alert("Form submitted");
+        } else {
+            alert("Form has errors.")
+        }
     };
 
-    const handleChange = (id, e) => {
-        // field[id] = e.target.value;
-        // setField({ ...field, field: field[id]});
-        // console.log(field)
+    const handleChange = (index, e) => {
+        field[index].value = e.target.value;
+        setField([...field])
     };
     
     return (
@@ -72,23 +75,22 @@ const TemplateContact = (props) => {
                 />
                 <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
                 <StyledForm
-                    // onSubmit={(e) => handleSubmit(e)}
+                    onSubmit={(e) => handleSubmit(e)}
                 >
                     {
-                        props && Object.keys(props.fields).map((items, i) => {
-                            let item = props.fields[items];
+                        props && props.fields.map((item, i) => {
                             return (
                                 <FormField
                                     key={i}
-                                    // error={error[items] === true ? true : false}
+                                    error={item.error}
                                 >
                                     <Label
-                                        text={item.text}
+                                        text={item.label}
                                         isRequired={item.required ? true : false}
                                     />
                                     <InputText
-                                        onChange={(e) => handleChange(items, e)}
-                                        // value={field[items]} 
+                                        onChange={(e) => handleChange(i, e)}
+                                        value={item.value} 
                                         isRequired={item.required ? true : false}
                                     />
                                 </FormField>
@@ -98,7 +100,7 @@ const TemplateContact = (props) => {
                     <Button
                         className="submitBtn"
                         text="Envoyer"
-                        onClick={(e) => handleSubmit(e)}
+                        // onClick={(e) => handleSubmit(e)}
                     />
                 </StyledForm>
             </Wrapper>
