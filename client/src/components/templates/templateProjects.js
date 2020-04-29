@@ -71,30 +71,28 @@ const DatasMargin = styled(Datas)`
 const TemplateProjects = (props) => {
 
     return (
-        <>
-            <Template>
-                <Wrapper>
-                    <PageNumber currentPage={1} totalPage={2} />
-                    <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
-                    <div className="projectContent" >
-                        <StyledBlockText>
-                            <Text text={props.text1} />
-                            <Text text={props.team} />
-                            <Text text={props.objectif} />
-                        </StyledBlockText>
-                        <div className="imageContent" >
-                            <img className="img projet" src={props.img} alt="monument" />
-                            <img className="img cible" src={ImgCible} alt="cible" />
-                        </div>
+        <Template>
+            <Wrapper>
+                <PageNumber currentPage={1} totalPage={2} />
+                <Title text={props.title} size="medium" color={Color.whiteTranslucid} />
+                <div className="projectContent" >
+                    <StyledBlockText>
+                        <Text text={props.text1} />
+                        <Text text={props.team} />
+                        <Text text={props.objectif} />
+                    </StyledBlockText>
+                    <div className="imageContent" >
+                        <img className="img projet" src={props.img} alt="monument" />
+                        <img className="img cible" src={ImgCible} alt="cible" />
                     </div>
-                    <DatasMargin>
-                        <Digits digit={props.digitData1} name={props.nameData1} />
-                        <Digits digit={props.digitData2} name={props.nameData2} />
-                        <Digits digit={props.digitData3} name={props.nameData3} />
-                    </DatasMargin>
-                </Wrapper>
-            </Template>
-        </>
+                </div>
+                <DatasMargin>
+                    <Digits digit={props.digitData1} name={props.nameData1} />
+                    <Digits digit={props.digitData2} name={props.nameData2} />
+                    <Digits digit={props.digitData3} name={props.nameData3} />
+                </DatasMargin>
+            </Wrapper>
+        </Template>
       )
 }
 
