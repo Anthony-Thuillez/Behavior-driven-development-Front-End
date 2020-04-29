@@ -80,13 +80,13 @@ const TemplateProjects = (props) => {
                 'ContentType': 'application/json'
             }
         })
-        .then(response => {
-            if (response.ok)
-                return response.json();
-        })
-        .then(response => {
-            setRobberies(response);
-        });
+            .then(response => {
+                if (response.ok)
+                    return response.json();
+            })
+            .then(response => {
+                setRobberies(response);
+            });
     }, []);
 
     const handleScroll = (e) => {
@@ -127,13 +127,13 @@ const TemplateProjects = (props) => {
                         </div>
                         <DatasMargin>
                             <Digits digit={robberies[page - 1].details1Val} name={robberies[page - 1].details1Text} />
-                            <Digits digit={robberies[page - 1].details2Text} name={robberies[page - 1].details2Text} />
-                            <Digits digit={robberies[page - 1].details3Text} name={robberies[page - 1].details3Text} />
+                            <Digits digit={robberies[page - 1].details2Val} name={robberies[page - 1].details2Text} />
+                            <Digits digit={robberies[page - 1].details3Val} name={robberies[page - 1].details3Text} />
                         </DatasMargin>
                     </>
                 ) : (
-                    <Title text="Pas de projet en cours..." size="medium" color={Color.whiteTranslucid} />
-                )}
+                        <Title text="Pas de projet en cours..." size="medium" color={Color.whiteTranslucid} />
+                    )}
             </Wrapper>
         </Template>
     );
