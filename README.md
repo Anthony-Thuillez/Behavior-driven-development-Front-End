@@ -19,6 +19,8 @@
 $ git clone https://github.com/Anthony-Thuillez/Behavior-driven-development-Front-End.git
 $ cd <pathToProjectFolder>/client
 $ yarn install
+$ cd <pathToProjectFolder>/server
+$ npm install
 ```
 
 --------
@@ -27,6 +29,9 @@ $ yarn install
 ```shell
 $ cd <pathToProjectFolder>/client
 $ yarn start
+
+$ cd <pathToProjectFolder>/server
+$ npm start
 ```
 
 ## Launch and look the storybook
