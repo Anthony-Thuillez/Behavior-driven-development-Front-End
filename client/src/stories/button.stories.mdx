@@ -1,25 +1,35 @@
 import { Meta, Story, Preview, Code, Props } from '@storybook/addon-docs/blocks';
-import { Submit, Default, Disabled } from './button.stories';
+import { Default, Small, Medium, Large, White, Red, Disabled, Function } from './button.stories';
 import Button from '../components/atoms/button';
 
 <Meta title="Atoms|Button" component={Button} />
 
 # Button
 
-This section describe all variant of Button component. You can play with 3 types: `submit`, `default` and `disabled`.
+Example :
 
-<div style={{ display: 'flex', justifyContent: 'space-between', width: '600px',backgroundColor: '#140C0B', padding: '20px' }}>
-    <Submit onSubmit={e => alert('Envoyé')} />
-    <Default onChange={e => alert('Clicked')} />
+<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', height: '550px', backgroundColor: '#140C0B', padding: '20px' }}>
+    <Default />
+    <Small />
+    <Medium />
+    <Large />
+    <White />
+    <Red />
     <Disabled />
+    <Function />
 </div>
 
-Now let's see in details !
+How to use :
 
 ```javascript
-<Button type="submit" color='white' testid="submit-button" onSubmit={e => alert('Envoyé')}>Envoyer</Button>
-<Button type="default" color='red' testid="default-button" onChange={e => alert('Envoyé')}>Envoyer</Button>
-
+<Button text="Default button" />;
+<Button text="Small button" size="small" />;
+<Button text="Medium button" size="medium" />;
+<Button text="Large button" size="large" />;
+<Button text="White button" color="white" />;
+<Button text="Red button" color="red" />;
+<Button text="Disabled button" disabled />;
+<Button text="onClick button" onClick={() => alert('click !')} />;
 ```
 
 # Props

@@ -73,8 +73,6 @@ const TemplateProjects = (props) => {
     let [page, setPage] = useState(1);
 
     useEffect(() => {
-        console.log('effect');
-
         fetch('http://localhost:3001/api/robberies', {
             method: 'GET',
             headers: {
@@ -129,15 +127,14 @@ const TemplateProjects = (props) => {
                         </div>
                         <DatasMargin>
                             <Digits digit={robberies[page - 1].details1Val} name={robberies[page - 1].details1Text} />
-                            <Digits digit={robberies[page - 1].details2Text} name={robberies[page - 1].details2Text} />
-                            <Digits digit={robberies[page - 1].details3Text} name={robberies[page - 1].details3Text} />
+                            <Digits digit={robberies[page - 1].details2Val} name={robberies[page - 1].details2Text} />
+                            <Digits digit={robberies[page - 1].details3Val} name={robberies[page - 1].details3Text} />
                         </DatasMargin>
                     </>
                 ) : (
                         <Title text="Pas de projet en cours..." size="medium" color={Color.whiteTranslucid} />
                     )}
             </Wrapper>
-
         </Template>
     );
 };

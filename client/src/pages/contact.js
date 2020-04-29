@@ -4,20 +4,26 @@ import ImgTel from '../assets/tel.png';
 
 const Contact = () => {
 
-  const fields = {
-    field1: {
-      text: 'Si vous étiez une ville, vous seriez laquelle ?',
-      required: true
+  const fields = [
+    {
+      label: 'Si vous étiez une ville, vous seriez laquelle ?',
+      required: true,
+      value: '',
+      error: false
     },
-    field2: {
-      text: 'Quel monument rêveriez-vous de braquer ?',
-      required: true
+    {
+      label: 'Quel monument rêveriez-vous de braquer ?',
+      required: true,
+      value: '',
+      error: false
     },
-    field3: {
-      text: 'Quel est votre domaine de prédilection en matière de braquage ?',
-      required: true
+    {
+      label: 'Quel est votre domaine de prédilection en matière de braquage ?',
+      required: true,
+      value: '',
+      error: false
     }
-  }
+  ]
 
   return (
     <TemplateContact
