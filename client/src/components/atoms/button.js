@@ -58,15 +58,16 @@ const StyledButton = styled.button`
     }
 `;
 
-const Button = ({ className, type, text, color, size, disabled, onClick }) => {
+const Button = ({ className, type, text, color, size, disabled, onClick, testid }) => {
 
     return (
         <StyledButton
+            data-testid={testid}
             className={className}
             type={type}
             size={size}
             color={color}
-            disabled={disabled && 'disabled' }
+            disabled={disabled && 'disabled'}
             onClick={onClick}
         >
             {text}
