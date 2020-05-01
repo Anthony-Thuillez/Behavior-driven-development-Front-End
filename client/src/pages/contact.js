@@ -9,19 +9,22 @@ const Contact = () => {
       label: 'Si vous étiez une ville, vous seriez laquelle ?',
       required: true,
       value: '',
-      error: false
+      error: false,
+      datatestid: "city-field"
     },
     {
       label: 'Quel monument rêveriez-vous de braquer ?',
       required: true,
       value: '',
-      error: false
+      error: false,
+      datatestid: "rob-field"
     },
     {
       label: 'Quel est votre domaine de prédilection en matière de braquage ?',
       required: true,
       value: '',
-      error: false
+      error: false,
+      datatestid: "chosen-field"
     }
   ]
 

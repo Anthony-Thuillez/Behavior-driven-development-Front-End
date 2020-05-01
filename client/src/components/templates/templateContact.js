@@ -65,7 +65,7 @@ const TemplateContact = (props) => {
         field[index].value = e.target.value;
         setField([...field])
     };
-    
+
     return (
         <Template>
             <Wrapper>
@@ -90,8 +90,9 @@ const TemplateContact = (props) => {
                                     />
                                     <InputText
                                         onChange={(e) => handleChange(i, e)}
-                                        value={item.value} 
+                                        value={item.value}
                                         isRequired={item.required ? true : false}
+                                        data-testid={item.datatestid}
                                     />
                                 </FormField>
                             )
@@ -100,12 +101,13 @@ const TemplateContact = (props) => {
                     <Button
                         className="submitBtn"
                         text="Envoyer"
-                        // onClick={(e) => handleSubmit(e)}
+                        data-testid="button-contact"
+                    // onClick={(e) => handleSubmit(e)}
                     />
                 </StyledForm>
             </Wrapper>
         </Template>
-      )
+    )
 }
 
 export default TemplateContact;
